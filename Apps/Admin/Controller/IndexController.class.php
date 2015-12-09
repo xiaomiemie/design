@@ -3,6 +3,78 @@ namespace Admin\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+      $m=D('Manager');
+      $r=$m->checkSession();
+      if($r){
+        $this->display('index');
+      }else{
+        $this->show('<a href="{:U("Login/index/")}">请先登录</a>');
+      }
+      
     }
+    //信息
+    public function searchInfo(){
+      $m=D('Manager');
+      $r=$m->checkSession();
+      if($r){
+        $pageSize=I('pageSize');
+        $pageNum=I('pageNum');
+        $keyvalue=I('keyvalue');
+        $good=M('goods');
+        $where['gooddetail']=array('like',"%$keyvalue%");
+      $where['goodname']=array('like',"%$keyvalue%");
+      $where['_logic']='OR'; 
+      $map['_complex'] = $where;
+        $info= $good->where($map)->order('good_id desc')->page($pageNum,$pageSize)->select();
+        $count=count($good->where($map)->select());
+        if($info==false){
+          $res=0;
+        }else {
+          $res[data]=$info;
+          $res[totalCount]=$count;
+        }
+      }else{
+        $res=1;
+      }
+      
+      $this->ajaxReturn($res,'JSON');
+    }
+    
+    
+    public function delInfo(){
+     $good_id=I('goodid');
+     $good=M('goods');
+     $info=$good->where("good_id='$good_id'")->delete();
+     $this->ajaxReturn($info,'JSON');
+    }
+    
+   public function searchUser(){
+      $m=D('Manager');
+      $r=$m->checkSession();
+      if($r){
+         $pageSize=I('pageSize');
+        $pageNum=I('pageNum');
+        $keyvalue=I('keyvalue');
+        $u=M('user');
+        $where['nickname']=array('like',"%$keyvalue%");
+        $where['realname']=array('like',"%$keyvalue%");
+        $where['_logic']='OR'; 
+        $map['_complex'] = $where;
+        $info=$u->where($map)->order('user_id desc')->page($pageNum,$pageSize)->select();
+        $count=count($u->where($map)->select());
+        if($info!=false){
+          $res[data]=$info;
+          $res[totalCount]=$count;
+        }else{
+          $res=0;
+        }
+      }else{
+        $res=1;
+      }
+    
+      $this->ajaxReturn($res,'JSON');
+   }
+   
+    
+    
 }

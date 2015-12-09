@@ -7,12 +7,21 @@ class PersonalController extends Controller {
   //1基本信息
     public function index(){
       if(cookie('nickname')){
-       session('nickname',cookie('nickname'));
+       $nickname=cookie('nickname');
+        $user = D('user');
+        if($user->checkExisted($nickname)){
+          session('nickname',$nickname);
+        }else{
+          cookie('nickname',null); //设置cookie
+          cookie('password',null); //设置cookie        
+          cookie('realname',null); //设置cookie        
+          cookie('phonenum',null); //设置cookie 
+        }     
       }  
       if(session('?nickname')){
         $this->display('personal');
       }else{
-        $this->show('<a href="{:U("Login/index")}">請先登錄</a>');
+        $this->show('<a href="{:U("Login/index")}">请先登录</a>');
       }      
     }
     //1、改变手机号
@@ -122,12 +131,15 @@ class PersonalController extends Controller {
        if($flag){
          $goods = M('goods');     
         if(!empty($_FILES)){
+           $upload = new \Think\Upload();// 实例化上传类    
+           $upload->saveName ='/../Apps/Home/Public/Uploads/';
+           $upload->rootPath='Uploads';
           $config = array(
             'rootPath' => 'Uploads',
             'savePath' => '/../Apps/Home/Public/Uploads/',          
             'exts' => array('jpg', 'gif', 'png', 'jpeg'),
             );          
-          $upload = new \Think\Upload($config);// 实例化上传类
+          // $upload = new \Think\Upload($config);// 实例化上传类
           // 上传文件 
           $info   =   $upload->upload();
           if(!$info) {// 上传错误提示错误信息

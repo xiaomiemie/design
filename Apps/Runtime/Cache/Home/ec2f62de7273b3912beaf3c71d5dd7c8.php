@@ -3,10 +3,10 @@
 <head>
   <title>个人中心</title>
   <meta charset='utf-8'>
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/index.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/personal/personal.css">
-  <script type="text/javascript" src="/tk32/Apps/Home/Public/framework/require.js" data-main='/tk32/Apps/Home/Public/js/personalCenter/personalapp'></script>
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/personal/personal.css">
+  <script type="text/javascript" src="/design/Apps/Home/Public/framework/require.js" data-main='/design/Apps/Home/Public/js/personalCenter/personalapp'></script>
 </head>
 <body>
   <!-- 头部信息 -->

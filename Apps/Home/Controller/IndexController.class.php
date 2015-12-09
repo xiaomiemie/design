@@ -5,7 +5,13 @@ use Think\Controller;
 class IndexController extends Controller {
     public function index(){
     if(cookie('nickname')){
-      session('nickname',cookie('nickname'));
+      $nickname=cookie('nickname');
+      $user = D('user');
+      if($user->checkExisted($nickname)){
+        session('nickname',$nickname);
+      }else{
+        cookie(null);
+      }     
     }
     $this->display();
   

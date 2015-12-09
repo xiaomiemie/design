@@ -31,7 +31,7 @@ define(['jquery', 'validate'], function($, validateForm) {
           alert('用戶名或密碼不正確！');
           $(this).prop('disabled', false);
         }else{
-          window.location.href="/tk32/index.php/Home/Index/index.html";
+          window.location.href="/design/index.php/Home/Index/index.html";
         }
       }).fail(function() {
         alert('登陆异常')

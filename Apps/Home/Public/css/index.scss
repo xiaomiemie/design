@@ -27,11 +27,7 @@ ul,li{
      position:relative;
     cursor: pointer;
     height: 35px;
-    &:hover{
-      ul.menu-ul{
-        display: block;
-      }
-    }
+
   }
   
   ul.menu-ul{

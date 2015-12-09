@@ -3,9 +3,9 @@
 <head>
   <title>注册</title>
   <meta charset='utf-8'>
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/common/header.css">
-  <script type="text/javascript" src="/tk32/Apps/Home/Public/framework/require.js" data-main='/tk32/Apps/Home/Public/js/register/registerapp'></script>
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/common/header.css">
+  <script type="text/javascript" src="/design/Apps/Home/Public/framework/require.js" data-main='/design/Apps/Home/Public/js/register/registerapp'></script>
 </head>
 <body>
   <header class="topbar">
@@ -39,7 +39,7 @@
       <div class="form-group  has-feedback">
         <label class="col-sm-2 control-label">密码</label>
         <div class="col-sm-10">
-          <input type="password" name='password' class="form-control" placeholder="密码"></div>
+          <input type="password" name='password' class="form-control" placeholder="密码(6-20位,支持英文/字母/下划线_)"></div>
       </div>
 
       <div class="form-group  has-feedback">

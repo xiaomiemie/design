@@ -3,12 +3,12 @@
 <head>
   <title>首页</title>
   <meta charset='utf-8'>
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/index.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/form.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/content.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/toolbar.css">
-  <script type="text/javascript" src="/tk32/Apps/Home/Public/framework/require.js" data-main='/tk32/Apps/Home/Public/js/index/indexapp'></script>
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/form.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/content.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/toolbar.css">
+  <script type="text/javascript" src="/design/Apps/Home/Public/framework/require.js" data-main='/design/Apps/Home/Public/js/index/indexapp'></script>
   <!-- // <script type="text/javascript" src="framework/bootstrap.min.js"></script>
 -->
 </head>
@@ -58,7 +58,7 @@
 </div>
 
 <div class="loading">
-<img src="/tk32/Apps/Home/Public/image/loading2.jpg"></div>
+<img src="/design/Apps/Home/Public/image/loading2.jpg"></div>
 <!--工具条-->
 <div class="toolbar">
 <span class="toolbar-item"></span>

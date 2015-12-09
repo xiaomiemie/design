@@ -3,7 +3,14 @@ define(['jquery', 'loadlist', 'scrollto', 'leftscroll', 'typeclick', 'message'],
     el: $('.toolbar .toolbar-item')
   });
   scrollto.move();
-
+ 
+ $('.loginnickName').on('click',function(){
+  if($('ul.menu-ul').css('display')=='none'){
+    $('ul.menu-ul').show()
+  }else{
+    $('ul.menu-ul').hide()
+  }
+ });
 
   //左边菜单栏
   var leftscroll = new leftScroll.leftScroll({

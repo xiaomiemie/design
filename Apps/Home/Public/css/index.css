@@ -24,8 +24,6 @@ ul, li {
     position: relative;
     cursor: pointer;
     height: 35px; }
-    .header .loginnickName:hover ul.menu-ul {
-      display: block; }
   .header ul.menu-ul {
     position: absolute;
     top: 34px;

@@ -37,7 +37,10 @@ class LoginController extends Controller {
     //退出
     public function logout(){
       session(null);
-      cookie(null);
+      cookie('nickname',null); //设置cookie
+      cookie('password',null); //设置cookie        
+      cookie('realname',null); //设置cookie        
+      cookie('phonenum',null); //设置cookie 
       $this->redirect('Index/index');
     }
 }

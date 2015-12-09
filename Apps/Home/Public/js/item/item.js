@@ -1,4 +1,13 @@
-define(['jquery','message'], function($,Message) {
+define(['jquery', 'message'], function($, Message) {
+  
+  $('.loginnickName').on('click', function() {
+    if ($('ul.menu-ul').css('display') == 'none') {
+      $('ul.menu-ul').show()
+    } else {
+      $('ul.menu-ul').hide()
+    }
+  })
+
   $('.favorite span').on('click', function() {
     var id = $(this).data('id');
     if ($(this).css('color') == 'rgb(238, 238, 238)') {

@@ -1,6 +1,13 @@
 define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileupload', 'message', 'json2'], function($, b, validate, loadlist, mygoodlist, ajaxfileupload, Message, json2) {
 
-  //基本信息
+  $('.loginnickName').on('click', function() {
+      if ($('ul.menu-ul').css('display') == 'none') {
+        $('ul.menu-ul').show()
+      } else {
+        $('ul.menu-ul').hide()
+      }
+    })
+    //基本信息
   var v = new validate.validateForm();
   $('#myTabs a').click(function(e) {
     e.preventDefault();
@@ -156,8 +163,7 @@ define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileup
           data: '删除成功',
           type: 'alert-success'
         });
-        var x = mygoods.renderOne(data[0]);
-        parentli.replaceWith(x);
+
       } else if (data == 'err') {
         var mes = new Message.Message({
           data: '请先登录',
@@ -227,7 +233,8 @@ define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileup
         dataType: 'json',
         type: 'POST',
         success: function(data) {
-          data=JSON.parse(data);
+          data = JSON.parse(data);
+          console.log(data)
           if (data == 1) {
             var mes = new Message.Message({
               data: '上传成功',

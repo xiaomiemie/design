@@ -5,11 +5,11 @@ data:{
   pageSize:
 }
 */
-define(['jquery', 'loadingImg'], function($, loadingImg) {
+define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
   function loadList(opts) {
     window.classname = Math.ceil(Math.random() * 10000);
     this.c = 'class' + window.classname;
-    this.publicUrl = '/tk32/Apps/Home/Public/';
+    this.publicUrl = '/design/Apps/Home/Public/';
     this.opts = $.extend({}, loadList.DEFAULTS, opts);
     this.$el = this.opts.el;
     this.opts.data.pageNum = 1;
@@ -38,8 +38,11 @@ define(['jquery', 'loadingImg'], function($, loadingImg) {
     }).success(function(data) {
       console.log(data)
       loading.hide();
-      if (data==1) {
-        alert('请先登录');
+      if (data == 1) {
+        var mes = new Message.Message({
+            data: '请先登录',
+            type: 'alert-warning'
+          });
       } else {
         that.opts.data.pageNum++;
         that.render(data.data);
@@ -47,16 +50,20 @@ define(['jquery', 'loadingImg'], function($, loadingImg) {
       }
     }).fail(function() {
       loading.hide();
-      alert('出现异常');
+      var mes = new Message.Message({
+            data: '操作异常',
+            type: 'alert-danger'
+          });
     })
   };
 
   loadList.prototype.render = function(data) {
     var that = this;
     var publicUrl = that.publicUrl;
-     var arr = [];
+    var arr = [];
     if (data) {
-      var len = data.length;    
+      var len = data.length;
+      if (len > 0) {
         for (var i = 0; i < len; i++) {
           var str = ' <li><div class="thumbnail"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"><div class="caption">' +
             '<h4 class="goodname"><a target="_blank" href="../Item/index?id=' + data[i].good_id + '">' + data[i].goodname;
@@ -68,11 +75,14 @@ define(['jquery', 'loadingImg'], function($, loadingImg) {
           str = str + '</h4><p class="gooddetail">&nbsp;' + data[i].gooddetail + '</p></div></div></li>';
           arr.push(str);
         }
-      
-    }else {
+      } else {
         var str = '<p>对不起，没有你想要的结果</p>';
         arr.push(str);
       }
+    } else {
+      var str = '<p>对不起，没有你想要的结果</p>';
+      arr.push(str);
+    }
 
     that.$el.append(arr.join(''));
   };

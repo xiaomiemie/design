@@ -6,7 +6,16 @@ class ItemController extends Controller {
   //首頁
     public function index(){
       if(cookie('nickname')){
-        session('nickname',cookie('nickname'));
+        $nickname=cookie('nickname');
+        $user = D('user');
+        if($user->checkExisted($nickname)){
+          session('nickname',$nickname);
+        }else{
+          cookie('nickname',null); //设置cookie
+          cookie('password',null); //设置cookie        
+          cookie('realname',null); //设置cookie        
+          cookie('phonenum',null); //设置cookie 
+        }     
       }
       $id=$_GET['id'];
       $good=M('goods');

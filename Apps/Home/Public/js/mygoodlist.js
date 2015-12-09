@@ -5,10 +5,10 @@ data:{
   pageSize:
 }
 */
-define(['jquery', 'loadingImg'], function($, loadingImg) {
+define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
   function myGoodList(opts) {
     window.classname = Math.ceil(Math.random() * 100000);
-    this.publicUrl = '/tk32/Apps/Home/Public/';
+    this.publicUrl = '/design/Apps/Home/Public/';
     this.c = 'class' + window.classname;
     this.opts = $.extend({}, myGoodList.DEFAULTS, opts);
     this.$el = this.opts.el;
@@ -38,9 +38,15 @@ define(['jquery', 'loadingImg'], function($, loadingImg) {
     }).success(function(data) {
       loading.hide();
       if (data == 0) {
-        alert('异常');
+        var mes = new Message.Message({
+            data: '操作异常',
+            type: 'alert-danger'
+          });
       } else if (data == 1) {
-        alert('请先登录')
+        var mes = new Message.Message({
+            data: '请先登录',
+            type: 'alert-warning'
+          });
       } else {
         that.opts.data.pageNum++;
         that.render(data.list);

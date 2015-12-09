@@ -3,9 +3,9 @@
 <head>
   <title>登录</title>
   <meta charset='utf-8'>
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/common/header.css">
-  <script type="text/javascript" src="/tk32/Apps/Home/Public/framework/require.js" data-main='/tk32/Apps/Home/Public/js/login/loginapp'></script>
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/common/header.css">
+  <script type="text/javascript" src="/design/Apps/Home/Public/framework/require.js" data-main='/design/Apps/Home/Public/js/login/loginapp'></script>
 </head>
 <body>
   <header class="topbar">

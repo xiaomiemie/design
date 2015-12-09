@@ -29,5 +29,14 @@ class UserModel extends Model{
     }
   }
   
+  function checkExisted($name){
+    $info = $this->getBynickname($name);
+    if($info != null){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
   
 }

@@ -3,10 +3,10 @@
 <head>
   <title>详细图文</title>
   <meta charset='utf-8'>
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/index.css">
-  <link rel="stylesheet" type="text/css" href="/tk32/Apps/Home/Public/css/item/item.css">
-  <script type="text/javascript" src="/tk32/Apps/Home/Public/framework/require.js" data-main='/tk32/Apps/Home/Public/js/item/itemapp'></script>
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/item/item.css">
+  <script type="text/javascript" src="/design/Apps/Home/Public/framework/require.js" data-main='/design/Apps/Home/Public/js/item/itemapp'></script>
 </head>
 <body>
 
@@ -44,7 +44,7 @@
   <p class="detail text-primary"><?php echo ($res['content']['gooddetail']); ?></p>
 <?php
 $len = count($res['imgs']); for($i=1;$i<=$len;$i++){ ?>
-  <p class="imgp"><img src="/tk32/Apps/Home/Public/<?php echo ($res['imgs'][$i]); ?>"></p>
+  <p class="imgp"><img src="/design/Apps/Home/Public/<?php echo ($res['imgs'][$i]); ?>"></p>
 <?php } ?>
   
 
