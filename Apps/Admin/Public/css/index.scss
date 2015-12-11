@@ -102,9 +102,18 @@
     }
   }
   
+  .user-table{
+    height: 440px;
+    margin:20px 0 0 0;
+  }
+  
   #nav-page{
     width: 60%;
-    margin:20px auto;
+    margin:0 auto;
+    text-align: center;
+    ul{
+      margin-top: -10px;
+    }
   }
 }//user
 

@@ -55,7 +55,7 @@ define(['jquery', 'validate', 'message'], function($, validateForm, Message) {
     flag4 = v.checkEqual($('[name=password]'), $('[name=passwordOK]'));
     flag5 = v.requireCheck($('[name=isAgree]'));
     if (flag1 && flag2 && flag3 && flag4 && flag5 && flag6 && flag7 && flag8) {
-      $(this).prop('disabled', true);
+      // $(this).prop('disabled', true);
       $.ajax({
         url: 'Register/register',
         // data: $('[name=registerform]').serializeArray(),

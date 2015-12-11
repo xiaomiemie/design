@@ -88,7 +88,7 @@ class PersonalController extends Controller {
     // 2.2 商品上架
     public function upGood(){
        $user = D('User');
-      $flag = $user->checkSession();
+       $flag = $user->checkSession();
        if($flag){
           $goods = M('goods');
           $data['status']=I('status');
@@ -100,48 +100,53 @@ class PersonalController extends Controller {
           }else{
             $this->ajaxReturn('0','JSON');
           }
-      }else{
+       }else{
         $this->ajaxReturn('err','JSON');
-      }
+       }
 
     }
     //2.3 删除商品
     public function delGood(){
        $user = D('User');
-      $flag = $user->checkSession();
-       if($flag){
-          $goods = M('goods');
-      $id=I('id');
-      $res = $goods->where("good_id='$id'")->delete();
-       if($res){
-        $this->ajaxReturn($res,'JSON');
-      }else{
-        $this->ajaxReturn('0','JSON');
-      }
-       }else{
-        $this->ajaxReturn('err','JSON');
-       }
-     
+        $flag = $user->checkSession();
+         if($flag){
+            $goods = M('goods');
+        $id=I('id');
+        $res = $goods->where("good_id='$id'")->delete();
+         if($res){
+          $this->ajaxReturn($res,'JSON');
+        }else{
+          $this->ajaxReturn('0','JSON');
+        }
+         }else{
+          $this->ajaxReturn('err','JSON');
+         }
+       
     }
     
    //3.上传新货 
     public function update(){
        $user = D('User');
       $flag = $user->checkSession();
-       if($flag){
+      $f=$user->checkExisted(session('nickname'));
+       if($flag && $f){
          $goods = M('goods');     
         if(!empty($_FILES)){
-           $upload = new \Think\Upload();// 实例化上传类    
-           $upload->saveName ='/../Apps/Home/Public/Uploads/';
-           $upload->rootPath='Uploads';
-          $config = array(
-            'rootPath' => 'Uploads',
-            'savePath' => '/../Apps/Home/Public/Uploads/',          
-            'exts' => array('jpg', 'gif', 'png', 'jpeg'),
-            );          
+          $upload = new \Think\Upload(); // 实例化上传类
+        
+          $upload->allowExts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath='Apps/Home/Public/';
+         $upload->savePath = 'Uploads/';// 设置附件上传目录
+         
+         // $config = array(
+          //   'rootPath' => 'Uploads',
+          //   'savePath' => '/../Apps/Home/Public/Uploads/',          
+          //   'exts' => array('jpg', 'gif', 'png', 'jpeg')
+          //   );          
           // $upload = new \Think\Upload($config);// 实例化上传类
           // 上传文件 
           $info   =   $upload->upload();
+         
           if(!$info) {// 上传错误提示错误信息
             $this->ajaxReturn('至少上传一张图片','JSON');
           }else{// 上传成功
@@ -155,7 +160,8 @@ class PersonalController extends Controller {
            $data['status'] =1;
             $count = count($info);
             for($i=1;$i<=$count;$i++){
-              $data['goodimg'.$i]=strstr($info['imgupdate1']['savepath'], "Uploads").$info['imgupdate'.$i]['savename'];
+              // $data['goodimg'.$i]=strstr($info['imgupdate1']['savepath'], "Uploads").$info['imgupdate'.$i]['savename'];
+              $data['goodimg'.$i]=$info['imgupdate1']['savepath'].$info['imgupdate'.$i]['savename'];
             }
             $res = $goods->add($data);
             if($res){

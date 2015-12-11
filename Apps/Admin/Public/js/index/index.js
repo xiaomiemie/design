@@ -1,4 +1,4 @@
-define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap','tablepage'], function($, myGoodList, scrollto, Message, bootstrap,tablePage) {
+define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap', 'tablepage'], function($, myGoodList, scrollto, Message, bootstrap, tablePage) {
   var scrollto = new scrollto.scrollTo({
     el: $('.toolbar .toolbar-item')
   });
@@ -10,7 +10,7 @@ define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap','tablepage'],
     e.preventDefault()
     $(this).tab('show')
   });
-  
+
 
   //信息搜索框
   $('#searchinfobutton').on('click', function() {
@@ -26,7 +26,7 @@ define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap','tablepage'],
     });
   });
   $('#searchinfobutton').trigger('click');
-  
+
   //删除信息
   $('.goodlist').on('click', '.delbutton', function() {
     if (confirm('确定要删除吗')) {
@@ -44,6 +44,11 @@ define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap','tablepage'],
             type: 'alert-success'
           });
           $(that).parents('li').remove();
+        } else if (data == 2) {
+          var mes = new Message.Message({
+            data: '请先登录',
+            type: 'alert-warning'
+          });
         } else {
           var mes = new Message.Message({
             data: '操作异常',
@@ -58,17 +63,30 @@ define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap','tablepage'],
       })
     }
   });
-  
-  $('#searchuserbutton').on('click',function(){
+  //用户搜索按钮
+  $('#searchuserbutton').on('click', function() {
     var tp = new tablePage.tablePage({
-      elPage:$('#nav-page'),
-      elTable:$('.usertbody'),
-      data:{
-        keyvalue:$('#searchuserinput').val()
+      elPage: $('#nav-page'),
+      elTable: $('.usertbody'),
+      url: 'searchUser',
+      data: {
+        keyvalue: $('#searchuserinput').val(),
+        pageSize: 2
       }
     });
-  })
+  });
+  //判断是否第一次点击
+  $('ul.nav li').eq(1).on('click', function() {
+    if ($(this).hasClass('onceClick')) {
+      $(this).removeClass('onceClick');
+      $('#searchuserbutton').trigger('click');
+    }
+  });
+  // //删除用户
+  // $('.usertbody').on('click','.delUser',function(){
+  //   var data=$(this).data('id');
+  //   console.log(data);
 
-
+  // })
 
 })

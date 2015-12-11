@@ -234,7 +234,6 @@ define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileup
         type: 'POST',
         success: function(data) {
           data = JSON.parse(data);
-          console.log(data)
           if (data == 1) {
             var mes = new Message.Message({
               data: '上传成功',
@@ -259,9 +258,11 @@ define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileup
 
         },
         error: function(data) {
-          console.log(data)
+          var mes = new Message.Message({
+              data: '操作异常',
+              type: 'alert-danger'
+            });
 
-          alert('操作异常');
         }
       })
     }

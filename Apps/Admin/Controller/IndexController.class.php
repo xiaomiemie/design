@@ -27,11 +27,12 @@ class IndexController extends Controller {
       $map['_complex'] = $where;
         $info= $good->where($map)->order('good_id desc')->page($pageNum,$pageSize)->select();
         $count=count($good->where($map)->select());
-        if($info==false){
-          $res=0;
-        }else {
+        if($info!==false){
           $res[data]=$info;
           $res[totalCount]=$count;
+          
+        }else {
+          $res=0;
         }
       }else{
         $res=1;
@@ -42,12 +43,24 @@ class IndexController extends Controller {
     
     
     public function delInfo(){
-     $good_id=I('goodid');
-     $good=M('goods');
-     $info=$good->where("good_id='$good_id'")->delete();
-     $this->ajaxReturn($info,'JSON');
+            $m=D('Manager');
+      $r=$m->checkSession();
+      if($r){
+        $good_id=I('goodid');
+         $good=M('goods');
+         $info=$good->where("good_id='$good_id'")->delete();
+          if($info!==false){
+            $res=1;
+          }else{
+            $res='err';
+          }
+      }else{
+        $res='2';
+      }
+     
+     $this->ajaxReturn($res,'JSON');
     }
-    
+    //用户搜索
    public function searchUser(){
       $m=D('Manager');
       $r=$m->checkSession();
@@ -62,19 +75,43 @@ class IndexController extends Controller {
         $map['_complex'] = $where;
         $info=$u->where($map)->order('user_id desc')->page($pageNum,$pageSize)->select();
         $count=count($u->where($map)->select());
-        if($info!=false){
-          $res[data]=$info;
+       if($info!==false){
+         $res[data]=$info;
           $res[totalCount]=$count;
         }else{
-          $res=0;
+          $res='0';
         }
+          
+       
       }else{
         $res=1;
       }
     
       $this->ajaxReturn($res,'JSON');
+     
    }
    
-    
+    public function delUser(){
+      $m=D('Manager');
+      $r=$m->checkSession();
+      if($r){
+        $u=M('user');
+        $good=M('goods');
+        $info=M('info');
+        $nick=I('id');
+        $res1=$u->where("nickname='$nick'")->delete();//如果删了不存在的 返回0
+        $res2=$good->where("nickname='$nick'")->delete();
+        $res3=$info->where("nickname='$nick'")->delete();
+        if($res1!==false && $res2!==false && $res3!==false){
+        // if($res1!==false && $res2!==false){
+          $res=1;
+        }else{
+          $res=0;
+        }
+      }else{
+        $res='err';//没登录
+      }     
+      $this->ajaxReturn($res,'JSON');
+    }
     
 }

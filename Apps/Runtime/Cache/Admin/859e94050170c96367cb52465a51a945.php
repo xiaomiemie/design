@@ -30,17 +30,17 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" >
+      <li role="presentation"  class="active">
         <a href="#info"  role="tab" data-toggle="tab">信息列表</a>
       </li>
-      <li role="presentation" class="active">
+      <li role="presentation" class="onceClick">
         <a href="#user"  role="tab" data-toggle="tab">用户列表</a>
       </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane " id="info">
+      <div role="tabpanel" class="tab-pane active" id="info">
         <!-- 搜索 -->
         <div class="search">
           <input type="text" id='searchinfoinput' class="form-control input-radius" placeholder="关键词" />
@@ -49,14 +49,15 @@
         <!-- 列表 -->
         <ul class="goodlist"></ul>
       </div>
-      <div role="tabpanel" class="tab-pane active" id="user">
+      <div role="tabpanel" class="tab-pane" id="user">
         <!-- 搜索 -->
         <div class="search">
           <input type="text" id='searchuserinput' class="form-control input-radius" placeholder="关键词" />
           <button type="submit" class="btn btn-info" id="searchuserbutton" style="width:80px">搜索</button>
         </div>
         <!-- 列表 -->
-        <table class="table table-bordered table-responsive table-hover usertable">
+        <div class="user-table">
+          <table class="table table-bordered table-responsive table-hover usertable">
           <thead>
             <tr>
               <td>用户名</td>
@@ -65,17 +66,10 @@
             </tr>
           </thead>
           <tbody class="usertbody">
-            <tr>
-              <td>用户名</td>
-              <td>用户昵称</td>
-              <td>
-                <button class="btn btn-info">发送系统消息</button>
-                &nbsp;
-                <button class="btn btn-info">删除该用户</button>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
+        </div>
           <nav id='nav-page'>
             <!-- <ul class="pagination">
               <li>
