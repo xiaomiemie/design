@@ -10,24 +10,7 @@
 
 </head>
 <body>
-  <header class="main-header">
 
-    <ul>
-      <if condition="$Think.session.username neq ''">
-        <li class='loginUserName'>{$Think.session.username}</li>
-        <li>
-          <a href="{:U('Login/logout')}">退出</a>
-        </li>
-        <elseif condition="1"/>
-        <li style="width:50px">
-          <a href=" {:U('Login/index/')}">登录</a>
-        </li>
-        <else/>
-        <a href="{:U('Login/index/')}">登录1</a>
-      </if>
-    </ul>
-    <span>校园租赁买卖信息交流平台后台主页</span>
-  </header>
   <div class="main-content">
 
     <!-- Nav tabs -->
@@ -60,38 +43,65 @@
         <!-- 列表 -->
         <div class="user-table">
           <table class="table table-bordered table-responsive table-hover usertable">
-          <thead>
-            <tr>
-              <td>用户名</td>
-              <td>用户昵称</td>
-              <td>操作</td>
-            </tr>
-          </thead>
-          <tbody class="usertbody">
-            
-          </tbody>
-        </table>
+            <thead>
+              <tr>
+                <td>用户名</td>
+                <td>用户昵称</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody class="usertbody"></tbody>
+          </table>
         </div>
-          <nav id='nav-page'>
-            <!-- <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">1</a>
-              </li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul> -->
-          </nav>
-      </div>
+        <nav id='nav-page'>
+          <!-- <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">1</a>
+          </li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+        -->
+      </nav>
     </div>
-
   </div>
+</div>
+<!-- 信息框 -->
+<div class="main-dialog">
+  <p class="dialog-title">向<span>**</span>发送系统消息</p>
+  <div class="dialog-body">
+    <textarea id='dialog-text'></textarea>
+    <div class="dialog-btn">
+      <button class="dialog-submit btn btn-info">提交</button>
+      <button class="dialog-close btn btn-info">关闭</button>
+    </div>
+  </div>
+</div>
+
+<header class="main-header">
+  <ul>
+    <if condition="$Think.session.username neq ''">
+      <li class='loginUserName'>{$Think.session.username}</li>
+      <li>
+        <a href="{:U('Login/logout')}">退出</a>
+      </li>
+      <elseif condition="1"/>
+      <li style="width:50px">
+        <a href=" {:U('Login/index/')}">登录</a>
+      </li>
+      <else/>
+      <a href="{:U('Login/index/')}">登录1</a>
+    </if>
+  </ul>
+  <span>校园租赁买卖信息交流平台后台主页</span>
+</header>
 </body>
 </html>

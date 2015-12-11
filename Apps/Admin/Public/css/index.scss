@@ -116,9 +116,47 @@
     }
   }
 }//user
-
-
-
-
-
+}
+$dialog-width:400px;
+.main-dialog{
+  width: $dialog-width;
+  height: 300px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top: -150px;
+  margin-left: -250px;
+  border-radius:5px;
+  .dialog-title{
+    height: 40px;
+    line-height: 40px;
+    background:#5BC0DE;
+    font-weight: bold;
+    text-align: center;
+     border-radius:5px 5px 0 0;
+     color:white;
+     margin-bottom: 0;
+  }
+  .dialog-body{
+    height:240px;
+    border:1px solid #ccc;
+    border-top:none;
+    border-radius: 0 0 5px 5px;
+    margin-top: 0;
+    #dialog-text{
+      margin-top: 1px;
+      width: $dialog-width - 2px;
+      height: 180px;
+      resize: none;
+      border:none;
+      border-bottom:1px solid #ccc;
+    }
+    .dialog-btn{    
+    margin-top: 5px;  
+      text-align: center;
+      .dialog-submit{
+        margin-right: 30px;
+      }
+    }
+  }
 }
