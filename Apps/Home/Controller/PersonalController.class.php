@@ -27,11 +27,7 @@ class PersonalController extends Controller {
             if($count>0){
               $res['res']=$r;
               $f=$info->where("nickname='$nick' and info_flag='0'")->select();
-              if(count($f)>0){
-                $res['flag']=1;
-              }else{
-                $res['flag']=0;
-              }
+              $res['flag']=count($f);
             }else{
               $res['flag']=0;
               $arr['info_text']='暂时没有系统私信';
@@ -150,16 +146,16 @@ class PersonalController extends Controller {
    //3.上传新货 
     public function update(){
        $user = D('User');
-      $flag = $user->checkSession();
-      $f=$user->checkExisted(session('nickname'));
+        $flag = $user->checkSession();
+        $f=$user->checkExisted(session('nickname'));
        if($flag && $f){
          $goods = M('goods');     
         if(!empty($_FILES)){
           $upload = new \Think\Upload(); // 实例化上传类
         
           $upload->allowExts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath='Apps/Home/Public/';
-         $upload->savePath = 'Uploads/';// 设置附件上传目录
+          $upload->rootPath='Apps/Home/Public/';
+          $upload->savePath = 'Uploads/';// 设置附件上传目录
          
          // $config = array(
           //   'rootPath' => 'Uploads',
@@ -196,41 +192,62 @@ class PersonalController extends Controller {
         }else{
           $this->ajaxReturn('3','JSON');//至少传一张图
         }
-      }else{
-        $this->ajaxReturn('2','JSON');//没登陆
-      }
+        }else{
+          $this->ajaxReturn('2','JSON');//没登陆
+        }
       
     }
     
     //4 我的收藏
     public function myCollection(){
        $user = D('User');
-      $flag = $user->checkSession();
-       if($flag){
-          $Model =  D();
-      $pageNum=I('pageNum');
-      $pageSize=I('pageSize');
-       $goods = M('Goods');
-       $col = M('collection');
-       $nickname=session('nickname');
-        $datares = $col->where("nickname = '$nickname'")->order('good_id desc')->page(I('pageNum'),I('pageSize'))->field('good_id')->select();      
-        $count=count($col->where("nickname = '$nickname'")->select());
-        $info['totalCount']=$count;
-        if(count($datares)>0){ //我的收藏不为空
-          $datares['_logic']='OR'; 
-          $res = $goods->where($datares)->select();
-           if($res!==false){ //查询具体商品没错
-            $info['data']=$res;
-            $this->ajaxReturn($info,'JSON');
-          }        
-        }else{  //为空
-          $info['data']=null;
-          $this->ajaxReturn($info,'JSON');
+        $flag = $user->checkSession();
+         if($flag){
+            $Model =  D();
+            $pageNum=I('pageNum');
+            $pageSize=I('pageSize');
+             $goods = M('Goods');
+             $col = M('collection');
+             $nickname=session('nickname');
+              $datares = $col->where("nickname = '$nickname'")->order('good_id desc')->page(I('pageNum'),I('pageSize'))->field('good_id')->select();      
+              $count=count($col->where("nickname = '$nickname'")->select());
+              $info['totalCount']=$count;
+              if(count($datares)>0){ //我的收藏不为空
+                $datares['_logic']='OR'; 
+                $res = $goods->where($datares)->select();
+                 if($res!==false){ //查询具体商品没错
+                  $info['data']=$res;
+                  $this->ajaxReturn($info,'JSON');
+                }        
+              }else{  //为空
+                $info['data']=null;
+                $this->ajaxReturn($info,'JSON');
+              }
+        }else{
+          $this->ajaxReturn('1','JSON');
         }
-      }else{
-        $this->ajaxReturn('1','JSON');
-      }
-     
+       
         
+    }
+    
+    public function changeFlag(){
+        $user = D('User');
+        $flag = $user->checkSession();
+         if($flag){
+           $info=M('info');
+           $nick=session('nickname');
+           $arr=$info->where("nickname='$nick' and info_flag=0")->field('info_id')->select();
+           if($arr!==false){
+            $arr['_logic']='OR'; 
+            $data['info_flag']=1;
+            $res = $info->where($arr)->save($data);
+            $this->ajaxReturn($res,'JSON');
+           }else{
+             $this->ajaxReturn('err','JSON');
+           }
+           
+         }else{
+          $this->ajaxReturn('nolog','JSON');
+         }
     }
 }

@@ -3847,3 +3847,80 @@ SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0030s ]
 SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0030s ]
 SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('这是你额第二条系统消息','小咩') [ RunTime:0.2310s ]
 
+[ 2015-12-13T23:32:25+08:00 ] ::1 /design/admin.php/Index/sendMsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0030s ]
+SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('第三条纤细','小咩') [ RunTime:0.0760s ]
+
+[ 2015-12-13T23:33:27+08:00 ] ::1 /design/admin.php/Index/sendMsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0040s ]
+SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('这是我给你的第一条','小咩') [ RunTime:0.1520s ]
+
+[ 2015-12-13T23:33:31+08:00 ] ::1 /design/admin.php/Index/sendMsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0030s ]
+SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('这是我给你的第二条','小咩') [ RunTime:0.0520s ]
+
+[ 2015-12-13T23:33:35+08:00 ] ::1 /design/admin.php/Index/sendMsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0030s ]
+SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('这是我给你的第三条','小咩') [ RunTime:0.0590s ]
+
+[ 2015-12-13T23:39:40+08:00 ] ::1 /design/admin.php/Index/sendMsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0040s ]
+SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('这是我给你的第4条','小咩') [ RunTime:0.0690s ]
+
+[ 2015-12-13T23:40:47+08:00 ] ::1 /design/admin.php/Index/sendMsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0030s ]
+SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('5','小咩') [ RunTime:0.1260s ]
+
+[ 2015-12-13T23:47:07+08:00 ] ::1 /design/admin.php/Index/sendMsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `sw_info` [ RunTime:0.0030s ]
+SQL: INSERT INTO `sw_info` (`info_text`,`nickname`) VALUES ('6','小咩') [ RunTime:0.0940s ]
+

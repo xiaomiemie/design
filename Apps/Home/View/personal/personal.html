@@ -27,8 +27,8 @@
         <li role="presentation">
           <a href="#myCollection" role="tab" data-toggle="tab">我的收藏</a>
         </li>
-        <li role="presentation" class="">
-          <a href="#systemInfo" role="tab" data-toggle="tab">系统私信</a>
+        <li role="presentation" class="onceClick systemli">
+          <a href="#systemInfo" role="tab" data-toggle="tab">系统私信<?php if($res['flag']){?> <span class="badge" style="background-color:#5593F2"><?php echo $res['flag']?> <?php } ?> </span></a>
         </li>
       </ul>
 
@@ -175,12 +175,24 @@
         <!-- 系统消息 -->
         <div role="tabpanel" class="tab-pane clearfloat " id="systemInfo">
           <ul class="infolist">
-            <!-- <?php ?>
-            -->
-            <volist name="res['res']" id="vo">
-                <if condition="vo.info_flag eq 0">
+            <?php $r=$res['res'];$len=count($r); for($i=0;$i<$len;$i++){ 
+              if($r[$i]["info_flag"]==0){ ?>
                 <li class="newinfo">
-                <p class="info-time">{$vo.info_time}</p>
+                <p class="info-time"><?php echo $r[$i]['info_time'] ?></p>
+                <p class="info-text"><?php echo $r[$i]['info_text'] ?></p>
+              </li>
+             <?php }else{ ?>
+             <li>
+                <p class="info-time"><?php echo $r[$i]['info_time'] ?></p>
+                <p class="info-text"><?php echo $r[$i]['info_text'] ?></p>
+              </li>
+              <?php } ?>
+            <?php } ?>
+            
+<!--             <volist name="res['res']" id="vo">
+                <if condition="vo.info_flag neq 0">
+                <li class="newinfo">
+                <p class="info-time">{$vo.info_time}{$vo.info_flag}</p>
                 <p class="info-text">{$vo.info_text}</p>
               </li>
               
@@ -190,7 +202,7 @@
               </li>
     </if>
               
-            </volist>
+            </volist> -->
   
           </ul>
         </div>

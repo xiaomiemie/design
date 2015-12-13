@@ -27,8 +27,8 @@
         <li role="presentation">
           <a href="#myCollection" role="tab" data-toggle="tab">我的收藏</a>
         </li>
-        <li role="presentation" class="">
-          <a href="#systemInfo" role="tab" data-toggle="tab">系统私信</a>
+        <li role="presentation" class="onceClick systemli">
+          <a href="#systemInfo" role="tab" data-toggle="tab">系统私信<?php if($res['flag']){?> <span class="badge" style="background-color:#5593F2"><?php echo $res['flag']?> <?php } ?> </span></a>
         </li>
       </ul>
 
@@ -175,17 +175,28 @@
         <!-- 系统消息 -->
         <div role="tabpanel" class="tab-pane clearfloat " id="systemInfo">
           <ul class="infolist">
-            <!-- <?php ?>
-            -->
-            <?php if(is_array($res['res'])): $i = 0; $__LIST__ = $res['res'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(vo.info_flag == 0): ?><li class="newinfo">
-                <p class="info-time"><?php echo ($vo["info_time"]); ?></p>
+            <?php $r=$res['res'];$len=count($r); for($i=0;$i<$len;$i++){ if($r[$i]["info_flag"]==0){ ?>
+                <li class="newinfo">
+                <p class="info-time"><?php echo $r[$i]['info_time'] ?></p>
+                <p class="info-text"><?php echo $r[$i]['info_text'] ?></p>
+              </li>
+             <?php }else{ ?>
+             <li>
+                <p class="info-time"><?php echo $r[$i]['info_time'] ?></p>
+                <p class="info-text"><?php echo $r[$i]['info_text'] ?></p>
+              </li>
+              <?php } ?>
+            <?php } ?>
+            
+<!--             <?php if(is_array($res['res'])): $i = 0; $__LIST__ = $res['res'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(vo.info_flag != 0): ?><li class="newinfo">
+                <p class="info-time"><?php echo ($vo["info_time"]); echo ($vo["info_flag"]); ?></p>
                 <p class="info-text"><?php echo ($vo["info_text"]); ?></p>
               </li>
               
     <?php else: ?> <li>
                 <p class="info-time"><?php echo ($vo["info_time"]); ?></p>
                 <p class="info-text"><?php echo ($vo["info_text"]); ?></p>
-              </li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+              </li><?php endif; endforeach; endif; else: echo "" ;endif; ?> -->
   
           </ul>
         </div>

@@ -279,4 +279,18 @@ define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileup
 
   });
 
+$('.systemli').on('click',function(){
+  if($(this).hasClass('onceClick')){
+    $(this).removeClass('onceClick');
+    $.ajax({
+      type:'POST',
+      url:'changeFlag'
+    }).success(function(data){
+      $('.systemli .badge').remove();
+    }).fail(function(data){
+      
+    })
+  }
+})
+
 })
