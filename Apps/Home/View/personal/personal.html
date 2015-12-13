@@ -5,12 +5,12 @@
   <meta charset='utf-8'>
   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/toolbar.css">
   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/personal/personal.css">
   <script type="text/javascript" src="__PUBLIC__/framework/require.js" data-main='__PUBLIC__/js/personalCenter/personalapp'></script>
 </head>
 <body>
-  <!-- 头部信息 -->
-<include file="Apps/Home/index.html"/>
+
   <div class="personal">
     <div class="nav-tool">
       <!-- Nav tabs -->
@@ -26,6 +26,9 @@
         </li>
         <li role="presentation">
           <a href="#myCollection" role="tab" data-toggle="tab">我的收藏</a>
+        </li>
+        <li role="presentation" class="">
+          <a href="#systemInfo" role="tab" data-toggle="tab">系统私信</a>
         </li>
       </ul>
 
@@ -67,10 +70,18 @@
         <!-- 我的货单 -->
         <div role="tabpanel" class="tab-pane clearfloat" id="myGoods">
           <ul class="goodlist"></ul>
+          <!--工具条-->
+          <div class="toolbar">
+            <span class="toolbar-item"></span>
+          </div>
         </div>
         <!-- 我的收藏 -->
         <div role="tabpanel" class="tab-pane clearfloat" id="myCollection">
           <ul class="goodlist"></ul>
+          <!--工具条-->
+          <div class="toolbar">
+            <span class="toolbar-item"></span>
+          </div>
         </div>
         <!-- 上传新货 -->
         <div role="tabpanel" class="tab-pane" id="updateGood">
@@ -97,7 +108,7 @@
                 <label class="radio-inline">
                   <input type="radio" name="businesstype"  value="1">出售</label>
                 <label class="radio-inline">
-                <input type="radio" name="businesstype" value="2" checked='true'>可租可卖售</label>
+                  <input type="radio" name="businesstype" value="2" checked='true'>可租可卖售</label>
               </div>
             </div>
             <div class="form-group">
@@ -160,13 +171,36 @@
             </div>
           </form>
         </div>
-
+        
+        <!-- 系统消息 -->
+        <div role="tabpanel" class="tab-pane clearfloat " id="systemInfo">
+          <ul class="infolist">
+            <!-- <?php ?>
+            -->
+            <volist name="res['res']" id="vo">
+                <if condition="vo.info_flag eq 0">
+                <li class="newinfo">
+                <p class="info-time">{$vo.info_time}</p>
+                <p class="info-text">{$vo.info_text}</p>
+              </li>
+              
+    <else /> <li>
+                <p class="info-time">{$vo.info_time}</p>
+                <p class="info-text">{$vo.info_text}</p>
+              </li>
+    </if>
+              
+            </volist>
+  
+          </ul>
+        </div>
       </div>
-      <!-- aaa --> </div>
+    </div>
 
   </div>
   <div class="loading"></div>
-  
+  <!-- 头部信息 -->
+  <include file="Apps/Home/index.html"/>
   <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖网</footer>
 
 </body>

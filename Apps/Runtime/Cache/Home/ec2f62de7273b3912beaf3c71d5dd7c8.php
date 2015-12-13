@@ -5,38 +5,12 @@
   <meta charset='utf-8'>
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/toolbar.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/personal/personal.css">
   <script type="text/javascript" src="/design/Apps/Home/Public/framework/require.js" data-main='/design/Apps/Home/Public/js/personalCenter/personalapp'></script>
 </head>
 <body>
-  <!-- 头部信息 -->
-  <header class="header">
-    <span class="logo-name">租赁买卖信息网</span>
-    <ul class='nav-ul'>
 
-      <?php if($_SESSION['nickname']!= ''): ?><li class='loginnickName'>
-          <?php echo (session('nickname')); ?>
-          <ul class="menu-ul">
-          
-            <li >
-              <a target="_blank" href="<?php echo U('Personal/index');?>">个人中心</a>
-            </li>
-            <li class="logoutbutton"><a href="<?php echo U('Login/logout');?>">退出</a></li>
-          </ul>
-        </li>
-        <?php elseif(1): ?>  
-        <li style="width:50px">
-          <a href=" <?php echo U('Login/index');?>">登录</a>
-        </li>
-
-        <?php else: ?>  
-        <a href="<?php echo U('Login/index');?>">登录1</a><?php endif; ?>
-
-      <li style="width:30px">
-        <a href="<?php echo U('Register/index');?>">注册</a>
-      </li>
-    </ul>
-  </header>
   <div class="personal">
     <div class="nav-tool">
       <!-- Nav tabs -->
@@ -52,6 +26,9 @@
         </li>
         <li role="presentation">
           <a href="#myCollection" role="tab" data-toggle="tab">我的收藏</a>
+        </li>
+        <li role="presentation" class="">
+          <a href="#systemInfo" role="tab" data-toggle="tab">系统私信</a>
         </li>
       </ul>
 
@@ -93,10 +70,18 @@
         <!-- 我的货单 -->
         <div role="tabpanel" class="tab-pane clearfloat" id="myGoods">
           <ul class="goodlist"></ul>
+          <!--工具条-->
+          <div class="toolbar">
+            <span class="toolbar-item"></span>
+          </div>
         </div>
         <!-- 我的收藏 -->
         <div role="tabpanel" class="tab-pane clearfloat" id="myCollection">
           <ul class="goodlist"></ul>
+          <!--工具条-->
+          <div class="toolbar">
+            <span class="toolbar-item"></span>
+          </div>
         </div>
         <!-- 上传新货 -->
         <div role="tabpanel" class="tab-pane" id="updateGood">
@@ -123,7 +108,7 @@
                 <label class="radio-inline">
                   <input type="radio" name="businesstype"  value="1">出售</label>
                 <label class="radio-inline">
-                <input type="radio" name="businesstype" value="2" checked='true'>可租可卖售</label>
+                  <input type="radio" name="businesstype" value="2" checked='true'>可租可卖售</label>
               </div>
             </div>
             <div class="form-group">
@@ -186,13 +171,57 @@
             </div>
           </form>
         </div>
-
+        
+        <!-- 系统消息 -->
+        <div role="tabpanel" class="tab-pane clearfloat " id="systemInfo">
+          <ul class="infolist">
+            <!-- <?php ?>
+            -->
+            <?php if(is_array($res['res'])): $i = 0; $__LIST__ = $res['res'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(vo.info_flag == 0): ?><li class="newinfo">
+                <p class="info-time"><?php echo ($vo["info_time"]); ?></p>
+                <p class="info-text"><?php echo ($vo["info_text"]); ?></p>
+              </li>
+              
+    <?php else: ?> <li>
+                <p class="info-time"><?php echo ($vo["info_time"]); ?></p>
+                <p class="info-text"><?php echo ($vo["info_text"]); ?></p>
+              </li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+  
+          </ul>
+        </div>
       </div>
-      <!-- aaa --> </div>
+    </div>
 
   </div>
   <div class="loading"></div>
-  
+  <!-- 头部信息 -->
+    <header class="header">
+    <span class="logo-name">租赁买卖信息网</span>
+    <ul class='nav-ul'>
+
+      <?php if($_SESSION['nickname']!= ''): ?><li class='loginnickName'>
+          <?php echo (session('nickname')); ?>
+          <ul class="menu-ul">
+          
+            <li >
+              <a target="_blank" href="<?php echo U('Personal/index');?>">个人中心</a>
+            </li>
+            <li class="logoutbutton"><a href="<?php echo U('Login/logout');?>">退出</a></li>
+          </ul>
+        </li>
+        <?php elseif(1): ?>  
+        <li style="width:50px">
+          <a href=" <?php echo U('Login/index');?>">登录</a>
+        </li>
+
+        <?php else: ?>  
+        <a href="<?php echo U('Login/index');?>">登录1</a><?php endif; ?>
+
+      <li style="width:30px">
+        <a href="<?php echo U('Register/index');?>">注册</a>
+      </li>
+    </ul>
+  </header>
   <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖网</footer>
 
 </body>

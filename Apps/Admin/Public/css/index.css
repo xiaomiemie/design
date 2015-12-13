@@ -1,4 +1,8 @@
 @charset "UTF-8";
+html, body {
+  width: 100%;
+}
+
 .main-header {
   width: 100%;
   height: 35px;
@@ -25,6 +29,14 @@
 }
 .main-header ul li a {
   text-decoration: none;
+}
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
 }
 
 .main-content {
@@ -112,40 +124,36 @@
   top: 50%;
   left: 50%;
   margin-top: -150px;
-  margin-left: -250px;
+  margin-left: -200px;
   border-radius: 5px;
+  display: none;
 }
-.main-dialog .dialog-title {
-  height: 40px;
-  line-height: 40px;
-  background: #5BC0DE;
+.main-dialog .dialog-heading {
   font-weight: bold;
-  text-align: center;
-  border-radius: 5px 5px 0 0;
-  color: white;
-  margin-bottom: 0;
+}
+.main-dialog .dialog-submit {
+  margin-right: 30px;
 }
 .main-dialog .dialog-body {
   height: 240px;
-  border: 1px solid #ccc;
-  border-top: none;
-  border-radius: 0 0 5px 5px;
-  margin-top: 0;
-}
-.main-dialog .dialog-body #dialog-text {
-  margin-top: 1px;
-  width: 398px;
-  height: 180px;
-  resize: none;
-  border: none;
-  border-bottom: 1px solid #ccc;
-}
-.main-dialog .dialog-body .dialog-btn {
-  margin-top: 5px;
   text-align: center;
 }
-.main-dialog .dialog-body .dialog-btn .dialog-submit {
-  margin-right: 30px;
+.main-dialog .dialog-body .dialog-text {
+  width: 100%;
+  height: 180px;
+  resize: none;
+}
+
+.mask {
+  width: 100%;
+  height: calc(100% - 35px);
+  background: #ccc;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  position: absolute;
+  top: 35px;
+  left: 0;
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -19,6 +19,29 @@ class PersonalController extends Controller {
         }     
       }  
       if(session('?nickname')){
+        $nick=session('nickname');
+          $info=M('info');
+          $r=$info->where("nickname='$nick'")->order('info_time desc')->select();
+          if($r!==false){
+            $count=count($r);
+            if($count>0){
+              $res['res']=$r;
+              $f=$info->where("nickname='$nick' and info_flag='0'")->select();
+              if(count($f)>0){
+                $res['flag']=1;
+              }else{
+                $res['flag']=0;
+              }
+            }else{
+              $res['flag']=0;
+              $arr['info_text']='暂时没有系统私信';
+              $res['res']=[$arr];
+            }
+          }else{
+            $res['flag']=0;
+              $res['res']=[];
+          }
+          $this->assign('res',$res);
         $this->display('personal');
       }else{
         $this->show('<a href="{:U("Login/index")}">请先登录</a>');
@@ -193,7 +216,7 @@ class PersonalController extends Controller {
         $datares = $col->where("nickname = '$nickname'")->order('good_id desc')->page(I('pageNum'),I('pageSize'))->field('good_id')->select();      
         $count=count($col->where("nickname = '$nickname'")->select());
         $info['totalCount']=$count;
-        if($datares!==null){ //我的收藏不为空
+        if(count($datares)>0){ //我的收藏不为空
           $datares['_logic']='OR'; 
           $res = $goods->where($datares)->select();
            if($res!==false){ //查询具体商品没错

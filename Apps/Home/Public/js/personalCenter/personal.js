@@ -1,5 +1,13 @@
-define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileupload', 'message', 'json2'], function($, b, validate, loadlist, mygoodlist, ajaxfileupload, Message, json2) {
-
+define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileupload', 'message', 'json2','scrollto'], function($, b, validate, loadlist, mygoodlist, ajaxfileupload, Message, json2,scrollto) {
+  var scrollto1 = new scrollto.scrollTo({
+    el: $('#myGoods .toolbar .toolbar-item')
+  });
+  scrollto1.move();
+    var scrollto2 = new scrollto.scrollTo({
+    el: $('#myCollection .toolbar .toolbar-item')
+  });
+  scrollto2.move();
+  
   $('.loginnickName').on('click', function() {
       if ($('ul.menu-ul').css('display') == 'none') {
         $('ul.menu-ul').show()

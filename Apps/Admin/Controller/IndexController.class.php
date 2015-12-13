@@ -22,9 +22,9 @@ class IndexController extends Controller {
         $keyvalue=I('keyvalue');
         $good=M('goods');
         $where['gooddetail']=array('like',"%$keyvalue%");
-      $where['goodname']=array('like',"%$keyvalue%");
-      $where['_logic']='OR'; 
-      $map['_complex'] = $where;
+        $where['goodname']=array('like',"%$keyvalue%");
+        $where['_logic']='OR'; 
+        $map['_complex'] = $where;
         $info= $good->where($map)->order('good_id desc')->page($pageNum,$pageSize)->select();
         $count=count($good->where($map)->select());
         if($info!==false){
@@ -43,7 +43,7 @@ class IndexController extends Controller {
     
     
     public function delInfo(){
-            $m=D('Manager');
+      $m=D('Manager');
       $r=$m->checkSession();
       if($r){
         $good_id=I('goodid');
@@ -90,7 +90,7 @@ class IndexController extends Controller {
       $this->ajaxReturn($res,'JSON');
      
    }
-   
+   //删除用户
     public function delUser(){
       $m=D('Manager');
       $r=$m->checkSession();
@@ -111,6 +111,26 @@ class IndexController extends Controller {
       }else{
         $res='err';//没登录
       }     
+      $this->ajaxReturn($res,'JSON');
+    }
+    
+    //发送消息
+    public function sendMsg(){
+       $m=D('Manager');
+      $r=$m->checkSession();
+      if($r){
+        $info=M('info');
+        $info->info_text=I('text');
+        $info->nickname=I('nickname');
+        $r=$info->add();
+        if($r){
+          $res=$r;
+        }else{
+          $res=0;
+        }
+      }else{
+        $res='err';
+      }
       $this->ajaxReturn($res,'JSON');
     }
     

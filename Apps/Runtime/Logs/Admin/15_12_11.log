@@ -14123,3 +14123,45 @@ SQL: SELECT * FROM `sw_goods` WHERE (  `gooddetail` LIKE '%%' OR `goodname` LIKE
 NOTIC: [8] Use of undefined constant data - assumed 'data' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 31 行.
 NOTIC: [8] Use of undefined constant totalCount - assumed 'totalCount' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 32 行.
 
+[ 2015-12-11T23:26:31+08:00 ] ::1 /design/admin.php/Index/searchInfo?keyvalue=&pageSize=3&pageNum=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sw_goods` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `sw_goods` WHERE (  `gooddetail` LIKE '%%' OR `goodname` LIKE '%%' ) ORDER BY good_id desc LIMIT 0,3   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `sw_goods` WHERE (  `gooddetail` LIKE '%%' OR `goodname` LIKE '%%' )  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant data - assumed 'data' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant totalCount - assumed 'totalCount' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 32 行.
+
+[ 2015-12-11T23:26:32+08:00 ] ::1 /design/admin.php/Index/searchInfo?keyvalue=&pageSize=3&pageNum=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `sw_goods` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `sw_goods` WHERE (  `gooddetail` LIKE '%%' OR `goodname` LIKE '%%' ) ORDER BY good_id desc LIMIT 0,3   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sw_goods` WHERE (  `gooddetail` LIKE '%%' OR `goodname` LIKE '%%' )  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant data - assumed 'data' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 31 行.
+NOTIC: [8] Use of undefined constant totalCount - assumed 'totalCount' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 32 行.
+
+[ 2015-12-11T23:26:33+08:00 ] ::1 /design/admin.php/Index/searchUser?keyvalue=&pageSize=2&pageNum=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sw_manager` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `sw_user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `sw_user` WHERE (  `nickname` LIKE '%%' OR `realname` LIKE '%%' ) ORDER BY user_id desc LIMIT 0,2   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `sw_user` WHERE (  `nickname` LIKE '%%' OR `realname` LIKE '%%' )  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant data - assumed 'data' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 79 行.
+NOTIC: [8] Use of undefined constant totalCount - assumed 'totalCount' D:\xampp2\htdocs\design\Apps\Admin\Controller\IndexController.class.php 第 80 行.
+

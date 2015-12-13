@@ -45,6 +45,24 @@ body{
         font-size: 12px;
        }
     }
+    #systemInfo{
+      width: 80%;
+      margin:20px auto;  
+      .infolist{
+        list-style: none;
+        li{
+          border-bottom:1px solid #ccc;
+          margin-top: 10px;
+          color:#6F7462;
+          .info-time{
+            text-align: center;
+          }
+        }
+        li.newinfo{
+          color:#000;
+        }
+      }
+    }
     
   }
   

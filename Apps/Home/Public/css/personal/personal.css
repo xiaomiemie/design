@@ -29,6 +29,19 @@
       resize: none; }
     .personal .nav-tool .tab-content #updateGood .remain {
       font-size: 12px; }
+  .personal .nav-tool .tab-content #systemInfo {
+    width: 80%;
+    margin: 20px auto; }
+    .personal .nav-tool .tab-content #systemInfo .infolist {
+      list-style: none; }
+      .personal .nav-tool .tab-content #systemInfo .infolist li {
+        border-bottom: 1px solid #ccc;
+        margin-top: 10px;
+        color: #6F7462; }
+        .personal .nav-tool .tab-content #systemInfo .infolist li .info-time {
+          text-align: center; }
+      .personal .nav-tool .tab-content #systemInfo .infolist li.newinfo {
+        color: #000; }
   .personal .goodlist li {
     list-style: none;
     float: left;

@@ -12,14 +12,12 @@ define(['jquery', 'message'], function($, Message) {
     $('#nav-page').find('a').eq(0).trigger('click');
   }
   tablePage.prototype.loadData = function(thatopt) {
-    console.log(thatopt)
     var that = this;
     $.ajax({
       type: 'GET',
       url: thatopt.url,
       data: thatopt.data
     }).success(function(data) {
-      console.log(data);
       if (data == 1) {
         var mes = new Message.Message({
           data: '请先登录',
@@ -31,12 +29,14 @@ define(['jquery', 'message'], function($, Message) {
           type: 'alert-danger'
         });
       } else {
-        console.log(data)
         that.renderTable(data.data);
         that.renderPage(data.totalCount);
       }
     }).fail(function() {
-      console.log('err')
+      var mes = new Message.Message({
+        data: '操作异常',
+        type: 'alert-danger'
+      });
     })
   }
 
@@ -49,7 +49,7 @@ define(['jquery', 'message'], function($, Message) {
       var len = data.length;
       if (len > 0) {
         for (var i = 0; i < len; i++) {
-          var str = '<tr><td>' + data[i].realname + '</td><td>' + data[i].nickname + '</td><td><button class="btn btn-info sendMsg" data-id="' + data[i].nickname + '">发送系统消息</button>&nbsp;<button class="btn btn-info delUser" data-id="' + data[i].nickname + '">删除该用户</button></td></tr>';
+          var str = '<tr><td>' + data[i].realname + '</td><td>' + data[i].nickname + '</td><td><button class="btn btn-info sendMsg" data-id="' + data[i].nickname + '">发送私信</button>&nbsp;<button class="btn btn-info delUser" data-id="' + data[i].nickname + '">删除用户</button></td></tr>';
           arr.push(str);
         }
       } else {
@@ -101,66 +101,17 @@ define(['jquery', 'message'], function($, Message) {
     elPage.on('click', 'a', function() {
       var val = $(this).html();
       that.opts.data.pageNum = $(this).html();
-
-      console.log(that)
       that.loadData(that.opts);
     });
 
-    elTable.on('click', '.delUser', function() {
-        var thatel = this;
-        var optdata = that.opts.data;
-        var val = {
-          data: {},
-          url: 'searchUser'
-        };
 
-        //  else {
-        //   val.data.pageNum = optdata.pageNum;
-        // }
-        $.ajax({
-          url: 'delUser',
-          type: 'POST',
-          data: {
-            id: $(thatel).data('id')
-          }
-        }).success(function(data) {
-          console.log(data)
-          if (data == 1) {
-            var mes = new Message.Message({
-              data: '删除成功',
-              type: 'alert-success'
-            });
-        if (elTable.find('tr').length == 1) { //如果这一夜只有一个
-          // if (optdata.pageNum == 1) {
-          //   val.data.pageNum = 1;
-          // } else {
-          //   val.data.pageNum = optdata.pageNum - 1;
-          // }
-          if(optdata.pageNum!=1){
-            optdata.pageNum=optdata.pageNum-1;
-          }
-        }
-            that.loadData(that.opts);
-          } else if (data == 'err') {
-            var mes = new Message.Message({
-              data: '请先登录',
-              type: 'alert-warning'
-            });
-          } else {
-            var mes = new Message.Message({
-              data: '操作异常',
-              type: 'alert-danger'
-            });
-          }
-        })
-      })
-      // elPage.on('click',elPage.find('span').eq(0),function(){    
-      //       that.opts.data.pageNum = that.opts.data.pageNum - 1;
-      //       that.loadData();
-      // });
-      //     elPage.on('click',elPage.find('span').eq(1),function(){    
-      //       that.opts.data.pageNum = that.opts.data.pageNum - 1;
-      //       that.loadData();
+    // elPage.on('click',elPage.find('span').eq(0),function(){    
+    //       that.opts.data.pageNum = that.opts.data.pageNum - 1;
+    //       that.loadData();
+    // });
+    //     elPage.on('click',elPage.find('span').eq(1),function(){    
+    //       that.opts.data.pageNum = that.opts.data.pageNum - 1;
+    //       that.loadData();
 
     // })
 

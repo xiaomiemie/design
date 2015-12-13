@@ -34,10 +34,10 @@ class RegisterController extends Controller {
       if ($res){
       // 成功后返回客户端新增的用户ID，并返回提示信息和操作状态
           // $this->ajaxReturn($res,"新增成功！",1);
-        $this->ajaxReturn(I(nickname),'JSON');
+        $this->ajaxReturn(1,'JSON');
        }else{
           // 错误后返回错误的操作状态和提示信息
-          $this->ajaxReturn(0,"新增错误！",0);
+          $this->ajaxReturn(0,'JSON');
        }
  
            
