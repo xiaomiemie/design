@@ -2,7 +2,7 @@ define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap', 'tablepage',
   var cf = new comfn.commonFn();
   cf.bwMatch();
   if (cf.jMeteor.browserName == 'msie' && parseInt(cf.jMeteor.browser.version) <= 8) {
-    $('body').html('请使用Chrome，Firedox，Safari，IE8版本以上浏览器');
+    $('body').html('请使用Chrome，Firedox，Safari，IE9及以上版本等浏览器');
 
   } else {
     var scrollto = new scrollto.scrollTo({

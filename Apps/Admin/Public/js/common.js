@@ -10,6 +10,6 @@ require.config({
     ajaxfileupload:'../../framework/ajaxfileupload',
     message:'../message',
     tablepage:'../tablepage',
-    comfn:'../comfn'
+    comfn:'comfn'
   }
 });
