@@ -50,6 +50,8 @@ class IndexController extends Controller {
          $good=M('goods');
          $info=$good->where("good_id='$good_id'")->delete();
           if($info!==false){
+            $col=M('collection');
+            $col->where("good_id='$good_id'")->delete();
             $res=1;
           }else{
             $res='err';
@@ -99,10 +101,12 @@ class IndexController extends Controller {
         $good=M('goods');
         $info=M('info');
         $nick=I('id');
+        $col=M('collection');
         $res1=$u->where("nickname='$nick'")->delete();//如果删了不存在的 返回0
         $res2=$good->where("nickname='$nick'")->delete();
+        $res4=$col->where("nickname='$nick'")->delete();
         $res3=$info->where("nickname='$nick'")->delete();
-        if($res1!==false && $res2!==false && $res3!==false){
+        if($res1!==false && $res2!==false && $res3!==false && $res4!==false){
         // if($res1!==false && $res2!==false){
           $res=1;
         }else{

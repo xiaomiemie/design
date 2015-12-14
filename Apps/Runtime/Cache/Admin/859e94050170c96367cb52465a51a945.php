@@ -1,11 +1,19 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
   <title>后台主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Admin/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Admin/Public/css/index.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Admin/Public/css/form.css">
-
+  
+<!--[if lt IE 9]
+      <script src="/design/Apps/Admin/Public/framework/html5.js"></script>
+      <script src="/design/Apps/Admin/Public/framework/respond.min.js"></script>
+<![endif]-->
+    
   <script type="text/javascript" src="/design/Apps/Admin/Public/framework/require.js" data-main="/design/Apps/Admin/Public/js/index/indexapp"></script>
 
 </head>

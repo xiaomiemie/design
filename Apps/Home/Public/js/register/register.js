@@ -1,6 +1,11 @@
-define(['jquery', 'validate', 'message'], function($, validateForm, Message) {
+define(['jquery', 'validate', 'message','comfn'], function($, validateForm, Message,comfn) {
+  var cf = new comfn.commonFn();
+  cf.bwMatch();
+  if (cf.jMeteor.browserName == 'msie' && parseInt(cf.jMeteor.browser.version) <= 8) {
+    $('body').html('请使用Chrome，Firedox，Safari，IE8版本以上浏览器');
 
-  var v = new validateForm.validateForm();
+  } else {
+    var v = new validateForm.validateForm();
   var flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8;
   $('[name=nickName]').on('blur', function() {
     var el = $(this);
@@ -79,4 +84,6 @@ define(['jquery', 'validate', 'message'], function($, validateForm, Message) {
       });
     }
   })
+  }
+  
 })

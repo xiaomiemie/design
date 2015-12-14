@@ -1,6 +1,6 @@
 require.config({
   paths:{
-    jquery:'../../framework/jquery-2.1.4.min',
+    jquery:'../../framework/jquery.min',
     bootstrap:'../../framework/bootstrap.min',    
     scrollto:'../scrollto',
     loadingImg:'../loadingImg',
@@ -9,6 +9,7 @@ require.config({
     json2:'../../framework/json2',
     ajaxfileupload:'../../framework/ajaxfileupload',
     message:'../message',
-    tablepage:'../tablepage'
+    tablepage:'../tablepage',
+    comfn:'../comfn'
   }
 });

@@ -1,3 +1,3 @@
-requirejs(['../common'], function (common) {
-    requirejs(['index']);
-});
+require(['../common'],function(common){
+  require(['index']);
+})
