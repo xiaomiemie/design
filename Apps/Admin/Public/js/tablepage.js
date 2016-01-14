@@ -6,8 +6,6 @@ define(['jquery', 'message'], function($, Message) {
     this.elTable = this.opts.elTable;
     this.opts.data.pageNum = 1;
     this.elPage.off('click', 'a');
-    // this.elPage.off('click', this.elPage.find('span').eq(0));
-    // this.elPage.off('click', this.elPage.find('span').eq(1));
     this.bindEvent();
     $('#nav-page').find('a').eq(0).trigger('click');
   }
@@ -78,18 +76,6 @@ define(['jquery', 'message'], function($, Message) {
     var li = elPage.find('li');
     li.removeClass('active');
     li.eq(pageNum - 1).addClass('active');
-    // if (pageNum == 1) {
-    //   li.eq(0).addClass('disabled');
-    //   elPage.off('click',li.eq(0).find('span'));
-    // } else {
-    //   li.eq(0).removeClass('disabled');
-    // }
-    // if (pageNum == pageCount) {
-    //   li.eq(pageCount + 1).addClass('disabled');
-    //   elPage.off('click',li.eq(li.eq(pageCount + 1)).find('span'));
-    // } else {
-    //   li.eq(pageCount + 1).removeClass('disabled');
-    // }
   }
 
   tablePage.prototype.bindEvent = function() {
@@ -103,18 +89,6 @@ define(['jquery', 'message'], function($, Message) {
       that.opts.data.pageNum = $(this).html();
       that.loadData(that.opts);
     });
-
-
-    // elPage.on('click',elPage.find('span').eq(0),function(){    
-    //       that.opts.data.pageNum = that.opts.data.pageNum - 1;
-    //       that.loadData();
-    // });
-    //     elPage.on('click',elPage.find('span').eq(1),function(){    
-    //       that.opts.data.pageNum = that.opts.data.pageNum - 1;
-    //       that.loadData();
-
-    // })
-
   }
 
   tablePage.DEFAULTS = {

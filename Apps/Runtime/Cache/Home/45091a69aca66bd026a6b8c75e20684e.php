@@ -52,7 +52,7 @@ $len = count($res['imgs']); for($i=1;$i<=$len;$i++){ ?>
 
   <!-- 头部信息 -->
    <header class="header">
-    <span class="logo-name">租赁买卖信息网</span>
+    <span class="logo-name">校园租赁买卖信息分享</span>
     <ul class='nav-ul'>
 
       <?php if($_SESSION['nickname']!= ''): ?><li class='loginnickName'>

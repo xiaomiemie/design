@@ -19,10 +19,10 @@
           <a href="#basicInfo" role="tab" data-toggle="tab">基本信息</a>
         </li>
         <li role="presentation">
-          <a href="#myGoods"  role="tab" data-toggle="tab">我的货单</a>
+          <a href="#myGoods"  role="tab" data-toggle="tab">我的信息</a>
         </li>
         <li role="presentation">
-          <a href="#updateGood" role="tab" data-toggle="tab">上传新货</a>
+          <a href="#updateGood" role="tab" data-toggle="tab">发布信息</a>
         </li>
         <li role="presentation">
           <a href="#myCollection" role="tab" data-toggle="tab">我的收藏</a>
@@ -108,7 +108,7 @@
                 <label class="radio-inline">
                   <input type="radio" name="businesstype"  value="1">出售</label>
                 <label class="radio-inline">
-                  <input type="radio" name="businesstype" value="2" checked='true'>可租可卖售</label>
+                  <input type="radio" name="businesstype" value="2" checked='true'>可租可售</label>
               </div>
             </div>
             <div class="form-group">
@@ -207,7 +207,7 @@
   <div class="loading"></div>
   <!-- 头部信息 -->
     <header class="header">
-    <span class="logo-name">租赁买卖信息网</span>
+    <span class="logo-name">校园租赁买卖信息分享</span>
     <ul class='nav-ul'>
 
       <?php if($_SESSION['nickname']!= ''): ?><li class='loginnickName'>

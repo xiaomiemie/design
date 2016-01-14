@@ -5,7 +5,8 @@ use Think\Controller;
 class ItemController extends Controller {
   //首頁
     public function index(){
-      if(cookie('nickname')){
+     if(!session('?nickname')){
+        if(cookie('nickname')){
         $nickname=cookie('nickname');
         $user = D('user');
         if($user->checkExisted($nickname)){
@@ -17,6 +18,7 @@ class ItemController extends Controller {
           cookie('phonenum',null); //设置cookie 
         }     
       }
+     }
       $id=$_GET['id'];
       $good=M('goods');
       $user=D('User');
@@ -79,7 +81,22 @@ class ItemController extends Controller {
         }
         $this->ajaxReturn($info,'JSON');
       }else{
-        $this->ajaxReturn('2','JSON');//没有登录
+        if(cookie('nickname')){
+          $nickname=cookie('nickname');
+          $user = D('user');
+          if($user->checkExisted($nickname)){
+            session('nickname',$nickname);
+          }else{
+            cookie('nickname',null); //设置cookie
+            cookie('password',null); //设置cookie        
+            cookie('realname',null); //设置cookie        
+            cookie('phonenum',null); //设置cookie 
+            $this->ajaxReturn('2','JSON');//没有登录
+          }     
+        }else{
+          $this->ajaxReturn('2','JSON');//没有登录
+        }
+        
       }
  
     }

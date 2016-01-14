@@ -217,7 +217,7 @@ define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileup
 
     $('[name=updateButton]').on('click', function() {
       flag6 = v.lenlimit({
-        len: 10,
+        len: 30,
         el: $('[name=goodname]')
       });
       flag7 = v.lenlimit({
@@ -294,10 +294,13 @@ define(['jquery', 'bootstrap', 'validate', 'loadlist', 'mygoodlist', 'ajaxfileup
         }).success(function(data) {
           $('.systemli .badge').remove();
         }).fail(function(data) {
-
+          var mes = new Message.Message({
+            data: '操作异常',
+            type: 'alert-danger'
+          });
         })
       }
-    })
+    });
   }
 
 

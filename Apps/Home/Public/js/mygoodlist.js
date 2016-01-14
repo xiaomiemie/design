@@ -5,7 +5,7 @@ data:{
   pageSize:
 }
 */
-define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
+define(['jquery', 'loadingImg', 'message'], function($, loadingImg, Message) {
   function myGoodList(opts) {
     window.classname = Math.ceil(Math.random() * 100000);
     this.publicUrl = '/design/Apps/Home/Public/';
@@ -39,14 +39,14 @@ define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
       loading.hide();
       if (data == 0) {
         var mes = new Message.Message({
-            data: '操作异常',
-            type: 'alert-danger'
-          });
+          data: '操作异常',
+          type: 'alert-danger'
+        });
       } else if (data == 1) {
         var mes = new Message.Message({
-            data: '请先登录',
-            type: 'alert-warning'
-          });
+          data: '请先登录',
+          type: 'alert-warning'
+        });
       } else {
         that.opts.data.pageNum++;
         that.render(data.list);
@@ -64,22 +64,27 @@ define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
     var arr = [];
     if (data) {
       var len = data.length;
-      for (var i = 0; i < len; i++) {
-        var str = ' <li><div class="thumbnail"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"><div class="caption">' +
-          '<h4 class="goodname"><a target="_blank" href="../Item/index?id=' + data[i].good_id + '">' + data[i].goodname;
-        if (data[i].status == 0) {
-          str = str + '</a><small>暂时下架</small>'
-        } else {
-          str = str + '</a>';
-        }
-        str = str + '</h4><p class="gooddetail">' + data[i].gooddetail + '</p><p> ';
-        if (data[i].status == 0) {
-          str = str + ' <a href="#" class="btn btn-info reupdate" role="button" data-status="' + data[i].status + '" data-id="' + data[i].good_id + '">重新上架</a>&nbsp;';
-        } else {
-          str = str + ' <a href="#" class="btn btn-info temporary" role="button" data-status="' + data[i].status + '" data-id="' + data[i].good_id + '">暂时下架</a>&nbsp;';
+      if (len > 0) {
+        for (var i = 0; i < len; i++) {
+          var str = ' <li><div class="thumbnail"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"><div class="caption">' +
+            '<h4 class="goodname"><a target="_blank" href="../Item/index?id=' + data[i].good_id + '">' + data[i].goodname;
+          if (data[i].status == 0) {
+            str = str + '</a><small>暂时下架</small>'
+          } else {
+            str = str + '</a>';
+          }
+          str = str + '</h4><p class="gooddetail">' + data[i].gooddetail + '</p><p> ';
+          if (data[i].status == 0) {
+            str = str + ' <a href="#" class="btn btn-info reupdate" role="button" data-status="' + data[i].status + '" data-id="' + data[i].good_id + '">重新上架</a>&nbsp;';
+          } else {
+            str = str + ' <a href="#" class="btn btn-info temporary" role="button" data-status="' + data[i].status + '" data-id="' + data[i].good_id + '">暂时下架</a>&nbsp;';
 
+          }
+          str = str + '<a href="#" class="btn btn-danger permanent" role="button" data-id="' + data[i].good_id + '">永久下架</a></p></div></div></li>';
+          arr.push(str);
         }
-        str = str + '<a href="#" class="btn btn-danger permanent" role="button" data-id="' + data[i].good_id + '">永久下架</a></p></div></div></li>';
+      } else {
+        var str = '<p>对不起，没有你想要的结果</p>';
         arr.push(str);
       }
     } else {

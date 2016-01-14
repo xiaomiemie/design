@@ -12,7 +12,7 @@
     <a href='index.html' class="logo-link">
       <!-- <img src=''/>
       -->
-    川大租赁买卖信息共享网
+    校园租赁买卖信息分享网
     </a>
    <div class="login-link">
       <span>没账号?&nbsp;&nbsp;还不快去&nbsp;</span>
@@ -54,7 +54,7 @@
 
   </div>
 
-  <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖网</footer>
+  <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖信息分享网</footer>
 
 </body>
 </html>

@@ -12,7 +12,7 @@
     <a href='<?php echo U('Index/index');?>' class="logo-link">
       <!-- <img src=''/>
       -->
-    川大租赁买卖信息共享网
+    校园租赁买卖信息分享网
     </a>
     <div class="login-link">
       <span>我已注册，现在就&nbsp;</span>
@@ -31,7 +31,7 @@
       <div class="form-group  has-feedback">
         <label class="col-sm-2 control-label">昵称</label>
         <div class="col-sm-10">
-          <input type="text" name='nickName' class="form-control" placeholder='数字字母下划线(6-20位)'>
+          <input type="text" name='nickName' class="form-control" placeholder='(1-15位)'>
           <span class='isUsed' style="font-size: 12px;color: red;display: none;">已被占用</span>
         </div>
       </div>
@@ -74,7 +74,7 @@
 
   </div>
 
-  <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖网</footer>
+  <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖信息分享网</footer>
 
 </body>
 </html>

@@ -19,9 +19,7 @@ define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
       this.clearList();
     }
   };
-
   loadList.prototype.loadData = function() {
-    console.log(this.opts)
     var that = this;
     var loading = new loadingImg.loadingImg({
       el: $('.loading'),
@@ -36,7 +34,6 @@ define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
       data: that.opts.data,
       url: that.opts.url
     }).success(function(data) {
-      console.log(data)
       loading.hide();
       if (data == 1) {
         var mes = new Message.Message({

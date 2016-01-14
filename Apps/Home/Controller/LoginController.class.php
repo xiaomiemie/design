@@ -37,6 +37,7 @@ class LoginController extends Controller {
     //退出
     public function logout(){
       session(null);
+      session('[destroy]'); // 销毁session
       cookie('nickname',null); //设置cookie
       cookie('password',null); //设置cookie        
       cookie('realname',null); //设置cookie        

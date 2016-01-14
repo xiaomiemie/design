@@ -3,7 +3,6 @@ define(['jquery', 'message', 'comfn'], function($, Message, comfn) {
   cf.bwMatch();
   if (cf.jMeteor.browserName == 'msie' && parseInt(cf.jMeteor.browser.version) <= 8) {
     $('body').html('请使用Chrome，Firedox，Safari，IE9及以上版本等浏览器');
-
   } else {
     $('.loginnickName').on('click', function() {
       if ($('ul.menu-ul').css('display') == 'none') {

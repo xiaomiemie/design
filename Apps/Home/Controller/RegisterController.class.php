@@ -27,10 +27,6 @@ class RegisterController extends Controller {
       $user->password = I(password);
       $user->phonenum = I(phonenum);
       $res = $user->add();
-      $data['status'] = 1;
-      $data['info'] = 'info';
-      $data['size'] = 9;
-      
       if ($res){
       // 成功后返回客户端新增的用户ID，并返回提示信息和操作状态
           // $this->ajaxReturn($res,"新增成功！",1);

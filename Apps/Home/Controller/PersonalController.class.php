@@ -6,18 +6,20 @@ use Think\Controller;
 class PersonalController extends Controller {
   //1基本信息
     public function index(){
-      if(cookie('nickname')){
-       $nickname=cookie('nickname');
-        $user = D('user');
-        if($user->checkExisted($nickname)){
-          session('nickname',$nickname);
-        }else{
-          cookie('nickname',null); //设置cookie
-          cookie('password',null); //设置cookie        
-          cookie('realname',null); //设置cookie        
-          cookie('phonenum',null); //设置cookie 
-        }     
-      }  
+      if(!session('?nickname')){//判断session是否已经被设置
+        if(cookie('nickname')){//如果用户之前保存了cookie
+          $nickname=cookie('nickname');
+          $user = D('user');
+          if($user->checkExisted($nickname)){//查询数据库监测该用户是否还存在
+            session('nickname',$nickname);
+          }else{
+            cookie('nickname',null); //设置cookie
+            cookie('password',null); //设置cookie        
+            cookie('realname',null); //设置cookie        
+            cookie('phonenum',null); //设置cookie 
+          }     
+        }  
+      }      
       if(session('?nickname')){
         $nick=session('nickname');
           $info=M('info');
@@ -56,11 +58,11 @@ class PersonalController extends Controller {
       }else{
         $info='0';
       }
-    }else{
-      $info='err';
-    }
-      
-      $this->ajaxReturn($info,'JSON');
+      }else{
+        $info='err';
+      }
+        
+        $this->ajaxReturn($info,'JSON');
     }
     
     //2.我的货单
@@ -156,26 +158,19 @@ class PersonalController extends Controller {
           $upload->allowExts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
           $upload->rootPath='Apps/Home/Public/';
           $upload->savePath = 'Uploads/';// 设置附件上传目录
-         
-         // $config = array(
-          //   'rootPath' => 'Uploads',
-          //   'savePath' => '/../Apps/Home/Public/Uploads/',          
-          //   'exts' => array('jpg', 'gif', 'png', 'jpeg')
-          //   );          
-          // $upload = new \Think\Upload($config);// 实例化上传类
+
           // 上传文件 
-          $info   =   $upload->upload();
-         
+          $info   =   $upload->upload();         
           if(!$info) {// 上传错误提示错误信息
             $this->ajaxReturn('至少上传一张图片','JSON');
           }else{// 上传成功
-            $data['goodname'] = I(goodname);              
-            $data['goodprice'] = I(goodprice);              
-            $data['changeprice'] = I(changeprice);              
-            $data['businesstype'] = I(businesstype);              
-            $data['goodtype'] = I(goodtype);
+            $data['goodname'] = I('goodname');              
+            $data['goodprice'] = I('goodprice');              
+            $data['changeprice'] = I('changeprice');              
+            $data['businesstype'] = I('businesstype');              
+            $data['goodtype'] = I('goodtype');
             $data['nickname']=session('nickname');
-            $data['gooddetail']=I(gooddetail);
+            $data['gooddetail']=I('gooddetail');
            $data['status'] =1;
             $count = count($info);
             for($i=1;$i<=$count;$i++){
