@@ -3,6 +3,7 @@
 <head>
   <title>登录</title>
   <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/common/header.css">
   <script type="text/javascript" src="/design/Apps/Home/Public/framework/require.js" data-main='/design/Apps/Home/Public/js/login/loginapp'></script>

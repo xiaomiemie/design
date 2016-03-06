@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>首页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta charset='utf-8'>
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/index.css">

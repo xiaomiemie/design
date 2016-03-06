@@ -21,14 +21,24 @@
     font-family: "微软雅黑","黑体","宋体"; }
 
 .rightlist {
-  width: calc(100% - 100px);
-  margin-left: 120px;
+  width: calc(90% - 105px);
+  margin-left: 110px;
   box-sizing: content-box; }
+
+.goodlist {
+  margin: 0 auto;
+  width: 90%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: space-start;
+  justify-content: space-start; }
 
 .goodlist li {
   list-style: none;
-  float: left;
-  width: 220px; }
+  margin-left: 10px;
+  width: 180px; }
   .goodlist li small {
     font-size: 12px;
     margin-left: 10px;

@@ -3,6 +3,7 @@
 <head>
   <title>个人中心</title>
   <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index.css">
   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/toolbar.css">
@@ -38,30 +39,30 @@
         <div role="tabpanel" class="tab-pane active" id="basicInfo">
           <form class="form-horizontal">
             <div class="form-group">
-              <label  class="col-sm-2 control-label">姓名</label>
-              <div class="col-sm-10">
+              <label  class="col-xs-3 control-label">姓名</label>
+              <div class="col-xs-9">
                 <input type="text" name="username" disabled class="form-control" value="{$Think.session.realname}"></div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">密码</label>
-              <div class="col-sm-10">
+              <label class="col-xs-3 control-label">密码</label>
+              <div class="col-xs-9">
                 <input type="password" name='password' disabled class="form-control" value="{$Think.session.password}"></div>
             </div>
 
             <div class="form-group  has-feedback">
-              <label class="col-sm-2 control-label">昵称</label>
-              <div class="col-sm-10">
+              <label class="col-xs-3 control-label">昵称</label>
+              <div class="col-xs-9">
                 <input type="text" name='nickName' disabled class="form-control" value="{$Think.session.nickname}"></div>
             </div>
 
             <div class="form-group  has-feedback">
-              <label class="col-sm-2 control-label">手机号</label>
-              <div class="col-sm-10">
+              <label class="col-xs-3 control-label">手机号</label>
+              <div class="col-xs-9">
                 <input type="text" name='phoneNum' class="form-control"  value="{$Think.session.phonenum}"></div>
             </div>
 
             <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
+              <div class="col-xs-offset-2 col-xs-10">
                 <button type="button" name='saveBasicInfo' class="btn btn-primary" style='width:200px;font-size:20px;'>保存</button>
               </div>
             </div>
@@ -141,7 +142,7 @@
             </div>
 
             <div class="form-group ">
-              <label class="col-sm-2 control-label">图片上传</label>
+              <label class="col-sm-2 control-label">图片上传(图片均&lt;1M)</label>
               <div class="col-sm-10">
                 <input type="file" id='img1' name='imgupdate1' class="form-control"></div>
             </div>
@@ -162,11 +163,9 @@
                 <input type="file" id='img5' name='imgupdate5' class="form-control"></div>
             </div>
             <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-5">
-                <button type="button" name='updateButton' class="btn btn-primary" style='width:200px;font-size:20px;'>上传</button>
-              </div>
-              <div class=" col-sm-5">
-                <button type="reset"  class="btn btn-primary" style='width:200px;font-size:20px;'>重置</button>
+              <div class="col-sm-offset-2 col-sm-6">
+                <button type="button" name='updateButton' class="btn btn-primary" style='font-size:14px;'>上传</button>
+                <button type="reset"  class="btn btn-primary" style='font-size:14px;'>重置</button>
               </div>
             </div>
           </form>

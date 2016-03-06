@@ -27,19 +27,30 @@
   }
 }
 .rightlist{
-  width: calc(100% - 100px);
-  margin-left: 120px;
+  width: calc(90% - 105px);
+  margin-left: 110px;
   box-sizing:content-box;
 }
-.goodlist li{
+    .goodlist{
+      margin:0 auto;
+      width: 90%;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow:row wrap;
+      flex-flow:row wrap;
+      -webkit-justify-content: space-start;
+      justify-content: space-start;
+    }
+  .goodlist li{
   list-style: none;
-  float: left;
-  width: 220px;
- small{
+  margin-left: 10px;
+  width:180px;
+  small{
     font-size: 12px;
   margin-left: 10px;
   color:#D9534F;
  }
+ 
 }
 .goodname{
 @include wordellipsis()

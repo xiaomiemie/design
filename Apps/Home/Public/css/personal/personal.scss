@@ -8,10 +8,16 @@ body{
   }
 .personal{
   margin-top: 40px;
+  width:100%;
+  .nav-tool ul.nav{
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+  }
   .nav-tool .tab-content{
     #basicInfo{
       width: 80%;
-      margin-top: 20px;
+      margin:20px auto;
     }
     .isUsed{
       font-size: 12px;
@@ -19,7 +25,7 @@ body{
       display: none;
     };
     #myGoods{
-      width: 90%;
+      width: 100%;
       margin:20px auto;
     }
     .clearfloat:after{
@@ -35,7 +41,7 @@ body{
     }
     #updateGood{
        width: 80%;
-       margin-top:20px;
+       margin:20px auto;
        textarea{
          width: 85%;
          height: 100px;
@@ -65,12 +71,21 @@ body{
     }
     
   }
-  
+    .goodlist{
+      margin:0 auto;
+      width: 90%;
+            display: -webkit-flex;
+      display: flex;
+            
+      -webkit-flex-flow:row wrap;
+      flex-flow:row wrap;
+      -webkit-justify-content: space-start;
+      justify-content: space-start;
+    }
   .goodlist li{
   list-style: none;
-  float: left;
-  width: 220px;
   margin-left: 10px;
+  max-width:200px;
   small{
     font-size: 12px;
   margin-left: 10px;
@@ -87,7 +102,7 @@ body{
   @include wordellipsis()
 }
 .goodpicsmall{
-  width: 220px;
+  width: 100%;
   height: 185px;
   display: inline-block
 }
