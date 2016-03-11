@@ -27,13 +27,13 @@
   }
 }
 .rightlist{
-  width: calc(90% - 105px);
+  width: calc(100% - 105px);
   margin-left: 110px;
   box-sizing:content-box;
 }
     .goodlist{
       margin:0 auto;
-      width: 90%;
+      width: 100%;
       display: -webkit-flex;
       display: flex;
       -webkit-flex-flow:row wrap;
@@ -52,6 +52,16 @@
  }
  
 }
+
+@media screen and (max-width: 450px) {
+  .goodlist li{
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+  }
+  
+}
+
 .goodname{
 @include wordellipsis()
 }

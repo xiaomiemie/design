@@ -11,9 +11,7 @@
 <body>
   <header class="topbar">
     <a href='index.html' class="logo-link">
-      <!-- <img src=''/>
-      -->
-    校园租赁买卖信息分享网
+      川大跳蚤市场
     </a>
    <div class="login-link">
       <span>没账号?&nbsp;&nbsp;还不快去&nbsp;</span>
@@ -55,7 +53,7 @@
 
   </div>
 
-  <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖信息分享网</footer>
+  <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©川大跳蚤市场网</footer>
 
 </body>
 </html>

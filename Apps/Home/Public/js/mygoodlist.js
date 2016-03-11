@@ -66,7 +66,8 @@ define(['jquery', 'loadingImg', 'message'], function($, loadingImg, Message) {
       var len = data.length;
       if (len > 0) {
         for (var i = 0; i < len; i++) {
-          var str = ' <li><div class="thumbnail"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"><div class="caption">' +
+          var str = ' <li><div class="thumbnail"><a target="_blank" href="../Item/index?id=' + data[i].good_id + '"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"></a><div class="caption">' +
+            // var str = ' <li><div class="thumbnail"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"><div class="caption">' +
             '<h4 class="goodname"><a target="_blank" href="../Item/index?id=' + data[i].good_id + '">' + data[i].goodname;
           if (data[i].status == 0) {
             str = str + '</a><small>暂时下架</small>'

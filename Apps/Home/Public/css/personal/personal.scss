@@ -9,10 +9,17 @@ body{
 .personal{
   margin-top: 40px;
   width:100%;
+  .nav-tool{
+    // width: 80%;
+  }
   .nav-tool ul.nav{
+    width:100%;
+    // display: -webkit-box;
     display: -webkit-flex;
     display: flex;
+    -ms-flex-wrap:nowrap;
     flex-flow: row nowrap;
+    
   }
   .nav-tool .tab-content{
     #basicInfo{
@@ -36,7 +43,7 @@ body{
       height:0
     }
      #myCollection{
-      width: 90%;
+      width: 100%;
       margin:20px auto;
     }
     #updateGood{
@@ -74,9 +81,8 @@ body{
     .goodlist{
       margin:0 auto;
       width: 90%;
-            display: -webkit-flex;
-      display: flex;
-            
+      display: -webkit-flex;
+      display: flex;     
       -webkit-flex-flow:row wrap;
       flex-flow:row wrap;
       -webkit-justify-content: space-start;
@@ -85,7 +91,7 @@ body{
   .goodlist li{
   list-style: none;
   margin-left: 10px;
-  max-width:200px;
+  width:200px;
   small{
     font-size: 12px;
   margin-left: 10px;
@@ -93,6 +99,8 @@ body{
  }
  
 }
+
+
 .goodname{
 @include wordellipsis()
 }
@@ -134,3 +142,14 @@ body{
   }
 }
 
+@media screen and (max-width: 450px) {
+  .personal .nav-tool ul.nav li{
+    width:70px; 
+  }
+  .personal .goodlist li{
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+  }
+  
+}

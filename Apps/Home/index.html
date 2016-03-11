@@ -1,5 +1,5 @@
   <header class="header">
-    <span class="logo-name">校园租赁买卖信息分享</span>
+    <span class="logo-name">川大跳蚤市场</span>
     <ul class='nav-ul'>
 
       <if condition="$Think.session.nickname neq ''">
@@ -8,9 +8,9 @@
           <ul class="menu-ul">
           
             <li >
-              <a target="_blank" href="{:U('Personal/index')}">个人中心</a>
+              <a target="_blank" style="display:block;width: 100%;" href="{:U('Personal/index')}">个人中心</a>
             </li>
-            <li class="logoutbutton"><a href="{:U('Login/logout')}">退出</a></li>
+            <li class="logoutbutton"><a href="{:U('Login/logout')}" style="display:block;width: 100%;">退出</a></li>
           </ul>
         </li>
         <elseif condition="1"/>  
@@ -19,7 +19,7 @@
         </li>
 
         <else/>  
-        <a href="{:U('Login/index')}">登录1</a>
+        <a href="{:U('Login/index')}">登录</a>
       </if>
 
       <li style="width:30px">

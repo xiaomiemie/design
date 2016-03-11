@@ -66,7 +66,7 @@
 </div>
 <!-- 头部信息 -->
   <header class="header">
-    <span class="logo-name">校园租赁买卖信息分享</span>
+    <span class="logo-name">川大跳蚤市场</span>
     <ul class='nav-ul'>
 
       <?php if($_SESSION['nickname']!= ''): ?><li class='loginnickName'>
@@ -74,9 +74,9 @@
           <ul class="menu-ul">
           
             <li >
-              <a target="_blank" href="<?php echo U('Personal/index');?>">个人中心</a>
+              <a target="_blank" style="display:block;width: 100%;" href="<?php echo U('Personal/index');?>">个人中心</a>
             </li>
-            <li class="logoutbutton"><a href="<?php echo U('Login/logout');?>">退出</a></li>
+            <li class="logoutbutton"><a href="<?php echo U('Login/logout');?>" style="display:block;width: 100%;">退出</a></li>
           </ul>
         </li>
         <?php elseif(1): ?>  
@@ -85,7 +85,7 @@
         </li>
 
         <?php else: ?>  
-        <a href="<?php echo U('Login/index');?>">登录1</a><?php endif; ?>
+        <a href="<?php echo U('Login/index');?>">登录</a><?php endif; ?>
 
       <li style="width:30px">
         <a href="<?php echo U('Register/index');?>">注册</a>

@@ -5,7 +5,7 @@ data:{
   pageSize:
 }
 */
-define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
+define(['jquery', 'loadingImg', 'message'], function($, loadingImg, Message) {
   function loadList(opts) {
     window.classname = Math.ceil(Math.random() * 10000);
     this.c = 'class' + window.classname;
@@ -37,9 +37,9 @@ define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
       loading.hide();
       if (data == 1) {
         var mes = new Message.Message({
-            data: '请先登录',
-            type: 'alert-warning'
-          });
+          data: '请先登录',
+          type: 'alert-warning'
+        });
       } else {
         that.opts.data.pageNum++;
         that.render(data.data);
@@ -48,9 +48,9 @@ define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
     }).fail(function() {
       loading.hide();
       var mes = new Message.Message({
-            data: '操作异常',
-            type: 'alert-danger'
-          });
+        data: '操作异常',
+        type: 'alert-danger'
+      });
     })
   };
 
@@ -62,7 +62,7 @@ define(['jquery', 'loadingImg','message'], function($, loadingImg,Message) {
       var len = data.length;
       if (len > 0) {
         for (var i = 0; i < len; i++) {
-          var str = ' <li><div class="thumbnail"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"><div class="caption">' +
+          var str = ' <li><div class="thumbnail"><a target="_blank" href="../Item/index?id=' + data[i].good_id + '"><img style="height:185px;" class="goodpicsmall" src="' + publicUrl + data[i].goodimg1 + '"></a><div class="caption">' +
             '<h4 class="goodname"><a target="_blank" href="../Item/index?id=' + data[i].good_id + '">' + data[i].goodname;
           if (data[i].status == 0) {
             str = str + '</a><small>暂时下架</small>'

@@ -22,6 +22,7 @@ class RegisterController extends Controller {
     public function register(){
       // echo THINK_VERSION;
       $user = M('User');
+      
       $user->realname = I(realname);
       $user->nickname = I(nickname);
       $user->password = I(password);
@@ -29,7 +30,10 @@ class RegisterController extends Controller {
       $res = $user->add();
       if ($res){
       // 成功后返回客户端新增的用户ID，并返回提示信息和操作状态
-          // $this->ajaxReturn($res,"新增成功！",1);
+        $I = M('Info');
+        $I->info_text='欢迎您注册使用川大跳蚤市场，小咩祝您在这里拍出称心价格，觅得心爱之物！';
+        $I->nickname = I(nickname);
+         $r=$I->add();
         $this->ajaxReturn(1,'JSON');
        }else{
           // 错误后返回错误的操作状态和提示信息

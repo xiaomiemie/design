@@ -76,6 +76,11 @@ define(['jquery', 'validate', 'message', 'comfn'], function($, validateForm, Mes
             data: '注册成功',
             type: 'alert-success'
           });
+          if (window.sessionStorage) {
+            sessionStorage.setItem('nickname', $('[name=nickName]').val());
+            sessionStorage.setItem('password', $('[name=password]').val());
+          }
+          window.location.href = "/design/index.php/Home/login/index.html";
         }).fail(function() {
           var mes = new Message.Message({
             data: '操作异常',

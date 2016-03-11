@@ -5,6 +5,11 @@ define(['jquery', 'validate', 'comfn'], function($, validateForm, comfn) {
     $('body').html('请使用Chrome，Firedox，Safari，IE9及以上版本等浏览器');
 
   } else {
+    if (window.sessionStorage) {
+      // alert('x')
+      $('[name=nickName]').val(sessionStorage.getItem('nickname'))
+      $('[name=password]').val(sessionStorage.getItem('password'))
+    }
     var v = new validateForm.validateForm();
     $('[type=button]').on('click', function() {
       var flag1, flag2, f;
