@@ -6,7 +6,6 @@ define(['jquery', 'validate', 'comfn'], function($, validateForm, comfn) {
 
   } else {
     if (window.sessionStorage) {
-      // alert('x')
       $('[name=nickName]').val(sessionStorage.getItem('nickname'))
       $('[name=password]').val(sessionStorage.getItem('password'))
     }
@@ -25,6 +24,7 @@ define(['jquery', 'validate', 'comfn'], function($, validateForm, comfn) {
       });
       if (flag1 && flag2) {
         $(this).prop('disabled', true);
+        var self = this;
         $.ajax({
           url: 'Login/login',
           data: {
@@ -36,7 +36,7 @@ define(['jquery', 'validate', 'comfn'], function($, validateForm, comfn) {
         }).success(function(data) {
           if (data == false) {
             alert('用戶名或密碼不正確！');
-            $(this).prop('disabled', false);
+            $(self).prop('disabled', false);
           } else {
             window.location.href = "/design/index.php/Home/Index/index.html";
           }

@@ -1,8 +1,12 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-  <title>登录</title>
+  <title>川大跳蚤市场登录</title>
   <meta charset='utf-8'>
+  <meta name="keywords" content="交易,跳蚤,川大,买,卖,出售" />
+  <meta name="description" content="川大跳槽市场，专注买卖交易出售租赁活动" />
+  <link rel="bookmark" href="/design/favicon.ico"/>
+  <link rel="shortcut icon" type="image/ico" href="/design/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/common/header.css">
@@ -11,9 +15,10 @@
 <body>
   <header class="topbar">
     <a href='index.html' class="logo-link">
+      <img src="/design/Apps/Home/Public/image/logo32.png" alt="川大跳蚤市场"/>
       川大跳蚤市场
     </a>
-   <div class="login-link">
+    <div class="login-link">
       <span>没账号?&nbsp;&nbsp;还不快去&nbsp;</span>
       <a class="btn btn-default" href='<?php echo U('Register/index');?>'>注册</a>
     </div>
@@ -31,7 +36,7 @@
         <div class="col-sm-10">
           <input type="password" name='password' class="form-control" placeholder="密码"></div>
       </div>
-      
+
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <div class="checkbox">
@@ -43,7 +48,6 @@
         </div>
       </div>
 
-     
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="button" class="btn btn-primary" style='width:200px;font-size:20px;'>登录</button>

@@ -139,7 +139,7 @@ define(['jquery', 'loadingImg', 'message'], function($, loadingImg, Message) {
   myGoodList.DEFAULTS = {
     clearList: false,
     data: {
-      pageSize: '3'
+      pageSize: '8'
     }
   };
 

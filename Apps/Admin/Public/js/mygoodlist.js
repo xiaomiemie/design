@@ -80,7 +80,7 @@ define(['jquery', 'loadingImg', 'message'], function($, loadingImg, Message) {
         var str = '<p>对不起，没有你想要的结果</p>';
         arr.push(str);
       }
-      
+
 
     } else {
       var str = '<p>对不起，没有你想要的结果</p>';
@@ -133,7 +133,7 @@ define(['jquery', 'loadingImg', 'message'], function($, loadingImg, Message) {
   myGoodList.DEFAULTS = {
     clearList: false,
     data: {
-      pageSize: '3'
+      pageSize: '8'
     }
   };
 

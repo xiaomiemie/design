@@ -1,8 +1,12 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-  <title>个人中心</title>
+  <title>川大跳蚤市场个人中心</title>
   <meta charset='utf-8'>
+  <meta name="keywords" content="交易,跳蚤,川大,买,卖,出售" />
+  <meta name="description" content="川大跳槽市场，专注买卖交易出售租赁活动" />
+  <link rel="bookmark" href="/design/favicon.ico"/>
+  <link rel="shortcut icon" type="image/ico" href="/design/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/index.css">
@@ -29,7 +33,13 @@
           <a href="#myCollection" role="tab" data-toggle="tab">我的收藏</a>
         </li>
         <li role="presentation" class="onceClick systemli">
-          <a href="#systemInfo" role="tab" data-toggle="tab">系统私信<?php if($res['flag']){?> <span class="badge" style="background-color:#5593F2"><?php echo $res['flag']?> <?php } ?> </span></a>
+          <a href="#systemInfo" role="tab" data-toggle="tab">
+            系统私信
+            <?php if($res['flag']){?>
+            <span class="badge" style="background-color:#5593F2">
+              <?php echo $res['flag']?>
+              <?php } ?></span>
+          </a>
         </li>
       </ul>
 
@@ -170,43 +180,48 @@
             </div>
           </form>
         </div>
-        
+
         <!-- 系统消息 -->
         <div role="tabpanel" class="tab-pane clearfloat " id="systemInfo">
           <ul class="infolist">
             <?php $r=$res['res'];$len=count($r); for($i=0;$i<$len;$i++){ if($r[$i]["info_flag"]==0){ ?>
-                <li class="newinfo">
-                <p class="info-time"><?php echo $r[$i]['info_time'] ?></p>
-                <p class="info-text"><?php echo $r[$i]['info_text'] ?></p>
-              </li>
-             <?php }else{ ?>
-             <li>
-                <p class="info-time"><?php echo $r[$i]['info_time'] ?></p>
-                <p class="info-text"><?php echo $r[$i]['info_text'] ?></p>
-              </li>
-              <?php } ?>
+            <li class="newinfo">
+              <p class="info-time">
+                <?php echo $r[$i]['info_time'] ?></p>
+              <p class="info-text">
+                <?php echo $r[$i]['info_text'] ?></p>
+            </li>
+            <?php }else{ ?>
+            <li>
+              <p class="info-time">
+                <?php echo $r[$i]['info_time'] ?></p>
+              <p class="info-text">
+                <?php echo $r[$i]['info_text'] ?></p>
+            </li>
             <?php } ?>
-            
-<!--             <?php if(is_array($res['res'])): $i = 0; $__LIST__ = $res['res'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(vo.info_flag != 0): ?><li class="newinfo">
+            <?php } ?>
+
+            <!--             <?php if(is_array($res['res'])): $i = 0; $__LIST__ = $res['res'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(vo.info_flag != 0): ?><li class="newinfo">
                 <p class="info-time"><?php echo ($vo["info_time"]); echo ($vo["info_flag"]); ?></p>
                 <p class="info-text"><?php echo ($vo["info_text"]); ?></p>
               </li>
-              
-    <?php else: ?> <li>
+
+              <?php else: ?>
+              <li>
                 <p class="info-time"><?php echo ($vo["info_time"]); ?></p>
                 <p class="info-text"><?php echo ($vo["info_text"]); ?></p>
-              </li><?php endif; endforeach; endif; else: echo "" ;endif; ?> -->
-  
-          </ul>
-        </div>
+              </li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+          -->
+        </ul>
       </div>
     </div>
-
   </div>
-  <div class="loading"></div>
-  <!-- 头部信息 -->
-    <header class="header">
-    <span class="logo-name">川大跳蚤市场</span>
+
+</div>
+<div class="loading"></div>
+<!-- 头部信息 -->
+  <header class="header">
+    <span class="logo-name"><img src="/design/Apps/Home/Public/image/logoheader.png" alt="川大跳槽市场"/>川大跳蚤市场</span>
     <ul class='nav-ul'>
 
       <?php if($_SESSION['nickname']!= ''): ?><li class='loginnickName'>
@@ -232,7 +247,7 @@
       </li>
     </ul>
   </header>
-  <footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖网</footer>
+<footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©川大跳蚤市场网</footer>
 
 </body>
 </html>

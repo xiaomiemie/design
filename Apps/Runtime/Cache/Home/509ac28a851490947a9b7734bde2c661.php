@@ -1,8 +1,12 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-  <title>注册</title>
+  <title>川大跳蚤市场注册</title>
   <meta charset='utf-8'>
+  <meta name="keywords" content="交易,跳蚤,川大,买,卖,出售" />
+  <meta name="description" content="川大跳槽市场，专注买卖交易出售租赁活动" />
+  <link rel="bookmark" href="/design/favicon.ico"/>
+  <link rel="shortcut icon" type="image/ico" href="/design/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/common/header.css">
@@ -11,7 +15,8 @@
 <body>
   <header class="topbar">
     <a href='<?php echo U('Index/index');?>' class="logo-link">
-     川大跳蚤市场
+      <img alt="川大跳蚤市场" src="/design/Apps/Home/Public/image/logo32.png"/>
+      川大跳蚤市场
     </a>
     <div class="login-link">
       <span>我已注册，现在就&nbsp;</span>

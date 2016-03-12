@@ -16,7 +16,7 @@ define(['jquery', 'loadlist'], function($, loadList) {
         url: 'typeSelect',
         clearList: true,
         data: {
-          pageSize: '3',
+          pageSize: '8',
           type: type
         }
       })

@@ -17,7 +17,15 @@ define(['jquery', 'comfn'], function($, comfn) {
             }, that.opts.speed)
           }
         }
-      }else if(name == 'firefox'){
+      } else if (name == 'safari') {
+        if ($(window).scrollTop() != that.opts.dest) {
+          if (!$(window).is(':animated')) {
+            $('html body').animate({
+              scrollTop: that.opts.dest
+            }, that.opts.speed)
+          }
+        }
+      } else if (name == 'firefox') {
         if ($(window).scrollTop() != that.opts.dest) {
           if (!$(window).is(':animated')) {
             $('html').animate({

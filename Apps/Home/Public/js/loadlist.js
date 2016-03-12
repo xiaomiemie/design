@@ -107,7 +107,7 @@ define(['jquery', 'loadingImg', 'message'], function($, loadingImg, Message) {
   loadList.DEFAULTS = {
     clearList: false,
     data: {
-      pageSize: '3'
+      pageSize: '8'
     }
   };
 

@@ -42,7 +42,7 @@ define(['jquery', 'loadlist', 'scrollto', 'leftscroll', 'typeclick', 'message', 
         data: {
           type: type,
           keyvalue: keyvalue,
-          pageSize: 3
+          pageSize: 8
         } //传入的是ul
       });
     })

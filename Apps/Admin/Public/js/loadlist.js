@@ -104,7 +104,7 @@ define(['jquery', 'loadingImg'], function($, loadingImg) {
   loadList.DEFAULTS = {
     clearList: false,
     data: {
-      pageSize: '3'
+      pageSize: '8'
     }
   };
 

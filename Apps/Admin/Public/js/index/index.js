@@ -23,7 +23,7 @@ define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap', 'tablepage',
         clearList: true,
         data: {
           keyvalue: keyvalue,
-          pageSize: 3
+          pageSize: 8
         } //传入的是ul
       });
     });
@@ -73,7 +73,7 @@ define(['jquery', 'mygoodlist', 'scrollto', 'message', 'bootstrap', 'tablepage',
         url: 'searchUser',
         data: {
           keyvalue: $('#searchuserinput').val(),
-          pageSize: 2
+          pageSize: 7
         }
       });
     });

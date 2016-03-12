@@ -1,9 +1,13 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-  <title>首页</title>
+  <title>川大跳蚤市场首页</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="keywords" content="交易,跳蚤,川大,买,卖,出售" />
+  <meta name="description" content="川大跳槽市场，专注买卖交易出售租赁活动" />
   <meta charset='utf-8'>
+  <link rel="bookmark" href="/design/favicon.ico"/>
+  <link rel="shortcut icon" type="image/ico" href="/design/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/index.css">
   <link rel="stylesheet" type="text/css" href="/design/Apps/Home/Public/css/form.css">
@@ -66,7 +70,7 @@
 </div>
 <!-- 头部信息 -->
   <header class="header">
-    <span class="logo-name">川大跳蚤市场</span>
+    <span class="logo-name"><img src="/design/Apps/Home/Public/image/logoheader.png" alt="川大跳槽市场"/>川大跳蚤市场</span>
     <ul class='nav-ul'>
 
       <?php if($_SESSION['nickname']!= ''): ?><li class='loginnickName'>
@@ -93,7 +97,7 @@
     </ul>
   </header>
 
-<footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©租赁买卖网</footer>
+<footer style="text-align: center;font-size: 12px;color:#ccc;margin-top:50px;">2015©川大跳蚤市场网</footer>
 
 </body>
 </html>
